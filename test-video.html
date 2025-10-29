@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Test</title>
+    <script>
+        function testPlayVideo() {
+            var video = document.getElementById('testVideo');
+            var playPromise = video.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(function() {
+                    console.log("Video playing successfully");
+                }).catch(function(error) {
+                    console.log("Error playing video: " + error);
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Video Test</h1>
+    <video id="testVideo" width="400" controls>
+        <source src="images/resource/gallery-image-6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <br><br>
+    <button onclick="testPlayVideo()">Play Video</button>
+</body>
+</html>

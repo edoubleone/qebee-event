@@ -812,6 +812,101 @@
         }
     }
 
+    // Function to play video when overlay is clicked
+    window.playVideo = function(element) {
+        console.log("Play video function called");
+        
+        // Find the video element within the same parent
+        var videoContainer = element.closest('.video-gallery-item');
+        console.log("Video container:", videoContainer);
+        
+        var video = videoContainer.querySelector('video');
+        console.log("Video element:", video);
+        
+        // Play the video
+        if (video) {
+            // Hide the overlay
+            var overlay = element.closest('.overlay-box');
+            console.log("Overlay element:", overlay);
+            
+            if (overlay) {
+                overlay.style.display = 'none';
+            }
+            
+            // Play the video
+            var playPromise = video.play();
+            console.log("Play promise:", playPromise);
+            
+            if (playPromise !== undefined) {
+                playPromise.then(function() {
+                    console.log("Video playing successfully");
+                }).catch(function(error) {
+                    console.log("Error playing video: " + error);
+                    // Show overlay again if play failed
+                    if (overlay) {
+                        overlay.style.display = 'flex';
+                    }
+                });
+            }
+            
+            // Add event listeners to show overlay when video is paused or ended
+            video.addEventListener('pause', function() {
+                console.log("Video paused");
+                if (overlay) {
+                    overlay.style.display = 'flex';
+                }
+            });
+            
+            video.addEventListener('ended', function() {
+                console.log("Video ended");
+                if (overlay) {
+                    overlay.style.display = 'flex';
+                }
+            });
+        } else {
+            console.log("Video element not found");
+        }
+        
+        return false; // Prevent default link behavior
+    };
+    
+    // Function to play video when overlay container is clicked
+    window.playVideoFromOverlay = function(overlayElement) {
+        console.log("Play video from overlay called");
+        
+        var video = overlayElement.closest('.video-gallery-item').querySelector('video');
+        console.log("Video element:", video);
+        
+        if (video) {
+            // Hide the overlay
+            overlayElement.style.display = 'none';
+            
+            // Play the video
+            var playPromise = video.play();
+            console.log("Play promise:", playPromise);
+            
+            if (playPromise !== undefined) {
+                playPromise.then(function() {
+                    console.log("Video playing successfully");
+                }).catch(function(error) {
+                    console.log("Error playing video: " + error);
+                    // Show overlay again if play failed
+                    overlayElement.style.display = 'flex';
+                });
+            }
+            
+            // Add event listeners to show overlay when video is paused or ended
+            video.addEventListener('pause', function() {
+                console.log("Video paused");
+                overlayElement.style.display = 'flex';
+            });
+            
+            video.addEventListener('ended', function() {
+                console.log("Video ended");
+                overlayElement.style.display = 'flex';
+            });
+        }
+    };
 /* ==========================================================================
    When document is ready, do
    ========================================================================== */
@@ -826,6 +921,21 @@
 		bgParallax();
 		prettyPhoto();
 		galleryMasonaryLayout();
+		
+		// Add event listeners for video elements
+		document.querySelectorAll('.video-gallery-item video').forEach(function(video) {
+			var overlay = video.closest('.video-gallery-item').querySelector('.overlay-box');
+			
+			if (overlay) {
+				video.addEventListener('pause', function() {
+					overlay.style.display = 'flex';
+				});
+				
+				video.addEventListener('ended', function() {
+					overlay.style.display = 'flex';
+				});
+			}
+		});
 	});
 
 /* ==========================================================================

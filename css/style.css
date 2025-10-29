@@ -2291,6 +2291,42 @@ ul.list li {
 	display: table-cell;
 	vertical-align: middle;
 }
+.video-gallery-item {
+    position: relative;
+}
+
+.video-gallery-item video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.video-gallery-item .overlay-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.video-gallery-item .overlay-box:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.video-gallery-item .video-link {
+    color: white;
+    text-decoration: none;
+}
+
+.video-gallery-item .video-link .fa-play-circle {
+    font-size: 3rem;
+}
 .single-team-member .img-box .overlay .box .content ul {
 	text-align: center;
 	margin: 0;
