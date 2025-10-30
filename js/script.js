@@ -873,16 +873,14 @@
     // Function to play video when overlay container is clicked
     window.playVideoFromOverlay = function(overlayElement) {
         console.log("Play video from overlay called");
-
+        
         var videoContainer = overlayElement.closest('.video-gallery-item');
         var video = videoContainer.querySelector('video');
-        var thumbnail = videoContainer.querySelector('.video-thumbnail');
         var errorMessage = videoContainer.querySelector('.video-error-message');
         console.log("Video element:", video);
-        console.log("Thumbnail element:", thumbnail);
-
+        
         // Check if browser supports the video format
-        if (video && !video.canPlayType || !video.canPlayType('video/mp4')) {
+        if (video && (!video.canPlayType || !video.canPlayType('video/mp4'))) {
             console.log("Browser does not support MP4 format");
             if (errorMessage) {
                 errorMessage.innerHTML = '<p>This video format (MP4) is not supported in your browser. Please update your browser.</p>';
@@ -891,11 +889,7 @@
             return;
         }
         
-        if (video && thumbnail) {
-            // Hide the thumbnail and show the video
-            thumbnail.style.display = 'none';
-            video.style.display = 'block';
-            
+        if (video) {
             // Hide the overlay
             overlayElement.style.display = 'none';
             
@@ -926,14 +920,14 @@
                         }, 1500);
                     }).catch(function(error) {
                         console.log("Error playing video: " + error);
-                        handleVideoError(video, thumbnail, overlayElement, errorMessage);
+                        handleVideoError(video, overlayElement, errorMessage);
                     });
                 } else {
                     // Older browsers might not return a promise
                     setTimeout(function() {
                         if (video.paused) {
                             console.log("Video failed to play (older browser)");
-                            handleVideoError(video, thumbnail, overlayElement, errorMessage);
+                            handleVideoError(video, overlayElement, errorMessage);
                         } else {
                             console.log("Video playing (older browser)");
                             // Unmute after playback starts
@@ -949,7 +943,7 @@
                 }
             } catch (playError) {
                 console.log("Exception when trying to play video:", playError);
-                handleVideoError(video, thumbnail, overlayElement, errorMessage);
+                handleVideoError(video, overlayElement, errorMessage);
             }
             
             // Add event listeners to show overlay when video is paused or ended
@@ -960,25 +954,20 @@
             
             video.addEventListener('ended', function() {
                 console.log("Video ended");
-                // Show thumbnail and hide video when ended
-                thumbnail.style.display = 'block';
-                video.style.display = 'none';
                 overlayElement.style.display = 'flex';
             });
             
             // Handle video loading errors
             video.addEventListener('error', function(e) {
                 console.log("Video error occurred:", e);
-                handleVideoError(video, thumbnail, overlayElement, errorMessage);
+                handleVideoError(video, overlayElement, errorMessage);
             });
         }
     };
     
     // Helper function to handle video errors
-    function handleVideoError(video, thumbnail, overlayElement, errorMessage) {
-        // Show thumbnail and hide video on error
-        thumbnail.style.display = 'block';
-        video.style.display = 'none';
+    function handleVideoError(video, overlayElement, errorMessage) {
+        // Show overlay on error
         overlayElement.style.display = 'flex';
         if (errorMessage) {
             errorMessage.style.display = 'block';
@@ -991,18 +980,12 @@
             if (retryPromise !== undefined) {
                 retryPromise.then(function() {
                     console.log("Video playing successfully (muted)");
-                    // Hide thumbnail and show video
-                    thumbnail.style.display = 'none';
-                    video.style.display = 'block';
                     // Hide error message
                     if (errorMessage) {
                         errorMessage.style.display = 'none';
                     }
                 }).catch(function(error) {
                     console.log("Error playing video even when muted: " + error);
-                    // Keep showing thumbnail
-                    thumbnail.style.display = 'block';
-                    video.style.display = 'none';
                     // Show error message
                     if (errorMessage) {
                         errorMessage.style.display = 'block';
@@ -1013,9 +996,6 @@
                 setTimeout(function() {
                     if (!video.paused) {
                         console.log("Video playing (muted, older browser)");
-                        // Hide thumbnail and show video
-                        thumbnail.style.display = 'none';
-                        video.style.display = 'block';
                         // Hide error message
                         if (errorMessage) {
                             errorMessage.style.display = 'none';
@@ -1027,25 +1007,6 @@
             console.log("Exception when trying to play video (muted):", retryError);
         }
     }
-    
-    // Add click event to error message to retry
-    document.addEventListener('click', function(e) {
-        if (e.target.closest('.video-error-message')) {
-            var videoContainer = e.target.closest('.video-gallery-item');
-            var overlay = videoContainer.querySelector('.overlay-box');
-            var errorMessage = videoContainer.querySelector('.video-error-message');
-            
-            // Hide error message
-            if (errorMessage) {
-                errorMessage.style.display = 'none';
-            }
-            
-            // Show overlay
-            if (overlay) {
-                overlay.style.display = 'flex';
-            }
-        }
-    });
 
 /* ==========================================================================
    When document is ready, do
@@ -1091,7 +1052,6 @@
 		document.querySelectorAll('.video-gallery-item').forEach(function(videoContainer) {
 			var video = videoContainer.querySelector('video');
 			var overlay = videoContainer.querySelector('.overlay-box');
-			var thumbnail = videoContainer.querySelector('.video-thumbnail');
 			
 			if (video && overlay) {
 				// Click on overlay plays the video
