@@ -4,9 +4,10 @@
 <!-- Mirrored from world5.commonsupport.com/html/rashid-wedding/rashid-wedding/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Oct 2025 12:59:03 GMT -->
 <head>
 <meta charset="utf-8">
-<title>Quebee Event</title>
+<title>Welcome to Quebee Events</title>
 <!-- Stylesheets -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/flipclock.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,12 +20,12 @@
 
 <body>
 <div class="page-wrapper">
- 	
+ 	  
     <!-- Preloader -->
-  
+    
  	
     <!-- Main Header -->
-   <header class="main-header" id="main-header">
+    <header class="main-header" id="main-header">
     	<!-- Header Top -->
     	<div class="header-top">
         	<div class="auto-container clearfix">
@@ -162,7 +163,7 @@ And then—voilà! The celebration came to life. Each vendor delivered their par
     
     <!--Team Section-->
 
-    <section class="gallery-section parallax" data-bg-img="images/parallax/image-1.jpg">
+     <section class="gallery-section parallax" data-bg-img="images/resource/blog-image-3.jpg">
         <div class="container">
             <div class="sec-title style-two">
                 <h3 class="text-white">OUR PHOTO GALLERY</h3>
@@ -194,12 +195,12 @@ And then—voilà! The celebration came to life. Each vendor delivered their par
                         <figure class="image">
                             <!-- Video Gallery Item -->
                             <div class="video-gallery-item">
-                                <video class="img-responsive" controls preload="metadata" poster="images/resource/video-poster.jpg">
-                                    <source src="images/resource/gallery-video-6.mp4" type="video/mp4">
+                                <video class="img-responsive" controls preload="metadata">
+                                    <source src="images/resource/gallery-image-6.mp4" type="video/mp4">
                                     Your browser does not support the video tag.
                                 </video>
-                                <div class="overlay-box">
-                                    <a href="#video-modal-6" class="link video-link" title="Gallery Video">
+                                <div class="overlay-box" onclick="playVideoFromOverlay(this)">
+                                    <a href="javascript:void(0)" class="link video-link">
                                         <span class="txt font-30"><i class="fa fa-play-circle"></i></span>
                                     </a>
                                 </div>

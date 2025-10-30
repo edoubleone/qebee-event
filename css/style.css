@@ -2327,6 +2327,23 @@ ul.list li {
 .video-gallery-item .video-link .fa-play-circle {
     font-size: 3rem;
 }
+.video-gallery-item .video-error-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 10;
+    cursor: pointer;
+}
+.video-gallery-item .video-error-message p {
+    margin: 0;
+    font-size: 14px;
+}
 .single-team-member .img-box .overlay .box .content ul {
 	text-align: center;
 	margin: 0;

@@ -874,12 +874,28 @@
     window.playVideoFromOverlay = function(overlayElement) {
         console.log("Play video from overlay called");
         
-        var video = overlayElement.closest('.video-gallery-item').querySelector('video');
+        var videoContainer = overlayElement.closest('.video-gallery-item');
+        var video = videoContainer.querySelector('video');
+        var thumbnail = videoContainer.querySelector('.video-thumbnail');
+        var errorMessage = videoContainer.querySelector('.video-error-message');
         console.log("Video element:", video);
+        console.log("Thumbnail element:", thumbnail);
         
-        if (video) {
+        if (video && thumbnail) {
+            // Hide the thumbnail and show the video
+            thumbnail.style.display = 'none';
+            video.style.display = 'block';
+            
             // Hide the overlay
             overlayElement.style.display = 'none';
+            
+            // Hide error message if visible
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+            
+            // Ensure the video is muted for autoplay policies
+            video.muted = true;
             
             // Play the video
             var playPromise = video.play();
@@ -888,10 +904,46 @@
             if (playPromise !== undefined) {
                 playPromise.then(function() {
                     console.log("Video playing successfully");
+                    // Unmute after playback starts to comply with browser policies
+                    setTimeout(function() {
+                        video.muted = false;
+                    }, 1000);
                 }).catch(function(error) {
                     console.log("Error playing video: " + error);
-                    // Show overlay again if play failed
+                    // Show thumbnail again and overlay if play failed
+                    thumbnail.style.display = 'block';
+                    video.style.display = 'none';
                     overlayElement.style.display = 'flex';
+                    
+                    // Show error message
+                    if (errorMessage) {
+                        errorMessage.style.display = 'block';
+                    }
+                    
+                    // Try to play with muted audio as fallback
+                    video.muted = true;
+                    var retryPromise = video.play();
+                    if (retryPromise !== undefined) {
+                        retryPromise.then(function() {
+                            console.log("Video playing successfully (muted)");
+                            // Hide thumbnail and show video
+                            thumbnail.style.display = 'none';
+                            video.style.display = 'block';
+                            // Hide error message
+                            if (errorMessage) {
+                                errorMessage.style.display = 'none';
+                            }
+                        }).catch(function(error) {
+                            console.log("Error playing video even when muted: " + error);
+                            // Show thumbnail again
+                            thumbnail.style.display = 'block';
+                            video.style.display = 'none';
+                            // Show error message
+                            if (errorMessage) {
+                                errorMessage.style.display = 'block';
+                            }
+                        });
+                    }
                 });
             }
             
@@ -903,10 +955,45 @@
             
             video.addEventListener('ended', function() {
                 console.log("Video ended");
+                // Show thumbnail and hide video when ended
+                thumbnail.style.display = 'block';
+                video.style.display = 'none';
                 overlayElement.style.display = 'flex';
+            });
+            
+            // Handle video loading errors
+            video.addEventListener('error', function(e) {
+                console.log("Video error occurred:", e);
+                // Show thumbnail and hide video on error
+                thumbnail.style.display = 'block';
+                video.style.display = 'none';
+                overlayElement.style.display = 'flex';
+                if (errorMessage) {
+                    errorMessage.style.display = 'block';
+                }
             });
         }
     };
+    
+    // Add click event to error message to retry
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.video-error-message')) {
+            var videoContainer = e.target.closest('.video-gallery-item');
+            var overlay = videoContainer.querySelector('.overlay-box');
+            var errorMessage = videoContainer.querySelector('.video-error-message');
+            
+            // Hide error message
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+            
+            // Show overlay
+            if (overlay) {
+                overlay.style.display = 'flex';
+            }
+        }
+    });
+
 /* ==========================================================================
    When document is ready, do
    ========================================================================== */
@@ -928,7 +1015,10 @@
 			
 			if (overlay) {
 				video.addEventListener('pause', function() {
-					overlay.style.display = 'flex';
+					// Only show overlay if video is not ended
+					if (!video.ended) {
+						overlay.style.display = 'flex';
+					}
 				});
 				
 				video.addEventListener('ended', function() {
