@@ -873,13 +873,23 @@
     // Function to play video when overlay container is clicked
     window.playVideoFromOverlay = function(overlayElement) {
         console.log("Play video from overlay called");
-        
+
         var videoContainer = overlayElement.closest('.video-gallery-item');
         var video = videoContainer.querySelector('video');
         var thumbnail = videoContainer.querySelector('.video-thumbnail');
         var errorMessage = videoContainer.querySelector('.video-error-message');
         console.log("Video element:", video);
         console.log("Thumbnail element:", thumbnail);
+
+        // Check if browser supports the video format
+        if (video && !video.canPlayType || !video.canPlayType('video/mp4')) {
+            console.log("Browser does not support MP4 format");
+            if (errorMessage) {
+                errorMessage.innerHTML = '<p>This video format (MP4) is not supported in your browser. Please update your browser.</p>';
+                errorMessage.style.display = 'block';
+            }
+            return;
+        }
         
         if (video && thumbnail) {
             // Hide the thumbnail and show the video
@@ -898,53 +908,48 @@
             video.muted = true;
             
             // Play the video
-            var playPromise = video.play();
-            console.log("Play promise:", playPromise);
-            
-            if (playPromise !== undefined) {
-                playPromise.then(function() {
-                    console.log("Video playing successfully");
-                    // Unmute after playback starts to comply with browser policies
+            try {
+                var playPromise = video.play();
+                console.log("Play promise:", playPromise);
+                
+                if (playPromise !== undefined) {
+                    playPromise.then(function() {
+                        console.log("Video playing successfully");
+                        // Unmute after playback starts to comply with browser policies
+                        setTimeout(function() {
+                            try {
+                                video.muted = false;
+                                console.log("Video unmuted");
+                            } catch (unmuteError) {
+                                console.log("Could not unmute video:", unmuteError);
+                            }
+                        }, 1500);
+                    }).catch(function(error) {
+                        console.log("Error playing video: " + error);
+                        handleVideoError(video, thumbnail, overlayElement, errorMessage);
+                    });
+                } else {
+                    // Older browsers might not return a promise
                     setTimeout(function() {
-                        video.muted = false;
-                    }, 1000);
-                }).catch(function(error) {
-                    console.log("Error playing video: " + error);
-                    // Show thumbnail again and overlay if play failed
-                    thumbnail.style.display = 'block';
-                    video.style.display = 'none';
-                    overlayElement.style.display = 'flex';
-                    
-                    // Show error message
-                    if (errorMessage) {
-                        errorMessage.style.display = 'block';
-                    }
-                    
-                    // Try to play with muted audio as fallback
-                    video.muted = true;
-                    var retryPromise = video.play();
-                    if (retryPromise !== undefined) {
-                        retryPromise.then(function() {
-                            console.log("Video playing successfully (muted)");
-                            // Hide thumbnail and show video
-                            thumbnail.style.display = 'none';
-                            video.style.display = 'block';
-                            // Hide error message
-                            if (errorMessage) {
-                                errorMessage.style.display = 'none';
-                            }
-                        }).catch(function(error) {
-                            console.log("Error playing video even when muted: " + error);
-                            // Show thumbnail again
-                            thumbnail.style.display = 'block';
-                            video.style.display = 'none';
-                            // Show error message
-                            if (errorMessage) {
-                                errorMessage.style.display = 'block';
-                            }
-                        });
-                    }
-                });
+                        if (video.paused) {
+                            console.log("Video failed to play (older browser)");
+                            handleVideoError(video, thumbnail, overlayElement, errorMessage);
+                        } else {
+                            console.log("Video playing (older browser)");
+                            // Unmute after playback starts
+                            setTimeout(function() {
+                                try {
+                                    video.muted = false;
+                                } catch (unmuteError) {
+                                    console.log("Could not unmute video:", unmuteError);
+                                }
+                            }, 1500);
+                        }
+                    }, 100);
+                }
+            } catch (playError) {
+                console.log("Exception when trying to play video:", playError);
+                handleVideoError(video, thumbnail, overlayElement, errorMessage);
             }
             
             // Add event listeners to show overlay when video is paused or ended
@@ -964,16 +969,64 @@
             // Handle video loading errors
             video.addEventListener('error', function(e) {
                 console.log("Video error occurred:", e);
-                // Show thumbnail and hide video on error
-                thumbnail.style.display = 'block';
-                video.style.display = 'none';
-                overlayElement.style.display = 'flex';
-                if (errorMessage) {
-                    errorMessage.style.display = 'block';
-                }
+                handleVideoError(video, thumbnail, overlayElement, errorMessage);
             });
         }
     };
+    
+    // Helper function to handle video errors
+    function handleVideoError(video, thumbnail, overlayElement, errorMessage) {
+        // Show thumbnail and hide video on error
+        thumbnail.style.display = 'block';
+        video.style.display = 'none';
+        overlayElement.style.display = 'flex';
+        if (errorMessage) {
+            errorMessage.style.display = 'block';
+        }
+        
+        // Try to play with muted audio as fallback
+        video.muted = true;
+        try {
+            var retryPromise = video.play();
+            if (retryPromise !== undefined) {
+                retryPromise.then(function() {
+                    console.log("Video playing successfully (muted)");
+                    // Hide thumbnail and show video
+                    thumbnail.style.display = 'none';
+                    video.style.display = 'block';
+                    // Hide error message
+                    if (errorMessage) {
+                        errorMessage.style.display = 'none';
+                    }
+                }).catch(function(error) {
+                    console.log("Error playing video even when muted: " + error);
+                    // Keep showing thumbnail
+                    thumbnail.style.display = 'block';
+                    video.style.display = 'none';
+                    // Show error message
+                    if (errorMessage) {
+                        errorMessage.style.display = 'block';
+                    }
+                });
+            } else {
+                // Older browsers
+                setTimeout(function() {
+                    if (!video.paused) {
+                        console.log("Video playing (muted, older browser)");
+                        // Hide thumbnail and show video
+                        thumbnail.style.display = 'none';
+                        video.style.display = 'block';
+                        // Hide error message
+                        if (errorMessage) {
+                            errorMessage.style.display = 'none';
+                        }
+                    }
+                }, 100);
+            }
+        } catch (retryError) {
+            console.log("Exception when trying to play video (muted):", retryError);
+        }
+    }
     
     // Add click event to error message to retry
     document.addEventListener('click', function(e) {
@@ -1023,6 +1076,36 @@
 				
 				video.addEventListener('ended', function() {
 					overlay.style.display = 'flex';
+				});
+			}
+			
+			// Add click event to video to pause and show overlay
+			video.addEventListener('click', function() {
+				if (!video.paused) {
+					video.pause();
+				}
+			});
+		});
+		
+		// Add direct click handler to video elements for better play control
+		document.querySelectorAll('.video-gallery-item').forEach(function(videoContainer) {
+			var video = videoContainer.querySelector('video');
+			var overlay = videoContainer.querySelector('.overlay-box');
+			var thumbnail = videoContainer.querySelector('.video-thumbnail');
+			
+			if (video && overlay) {
+				// Click on overlay plays the video
+				overlay.addEventListener('click', function(e) {
+					e.preventDefault();
+					e.stopPropagation();
+					playVideoFromOverlay(overlay);
+				});
+				
+				// Click on video pauses it
+				video.addEventListener('click', function(e) {
+					if (!video.paused) {
+						video.pause();
+					}
 				});
 			}
 		});

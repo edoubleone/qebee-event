@@ -2327,6 +2327,11 @@ ul.list li {
 .video-gallery-item .video-link .fa-play-circle {
     font-size: 3rem;
 }
+.video-gallery-item .video-thumbnail {
+    display: block;
+    width: 100%;
+    height: auto;
+}
 .video-gallery-item .video-error-message {
     position: absolute;
     top: 50%;
