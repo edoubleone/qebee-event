@@ -10,6 +10,10 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/flipclock.css" rel="stylesheet">
 <link href="css/style.css" rel="stylesheet">
+<style>
+  .form-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#28a745;color:#fff;padding:10px 16px;border-radius:4px;box-shadow:0 2px 10px rgba(0,0,0,.2);z-index:9999;display:none}
+  .form-toast.error{background:#dc3545}
+</style>
 <!-- Responsive -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -133,7 +137,7 @@
                           <!-- <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro similique ipsa deleniti doloribus fuga dicta id voluptate, excepturi nostrum cupiditate</p> -->
 
                           <!-- Appointment Form Sart-->
-                           <form id="appointment_form" name="appointment_form" class="form-transparent mt-30" method="post" action="http://world5.commonsupport.com/html/rashid-wedding/rashid-wedding/inc/rsvp.php">
+                           <form id="appointment_form" name="appointment_form" class="form-transparent mt-30" method="post" action="sendemail.php">
                             <div class="row">
                               <div class="col-sm-12">
                                 <div class="form-group mb-20">
@@ -163,28 +167,7 @@
                               <button type="submit" class="btn thm-btn btn-flat" data-loading-text="Please wait...">Submit Now</button>
                             </div>
                           </form>
-                          <!-- Appointment Form Validation-->
-                          <script type="text/javascript">
-                                $("#appointment_form").validate({
-                                  submitHandler: function(form) {
-                                    var form_btn = $(form).find('button[type="submit"]');
-                                    var form_result_div = '#form-result';
-                                    $(form_result_div).remove();
-                                    form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                                    var form_btn_old_msg = form_btn.html();
-                                    form_btn.html(form_btn.data("loading-text"));
-                                    $(form).ajaxSubmit({
-                                      target: form_result_div,
-                                      success: function(data) {
-                                        form_btn.html(form_btn_old_msg);
-                                        $(form).find('.form-control').val('');
-                                        $(form_result_div).fadeIn('slow');
-                                        setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                                      }
-                                    });
-                                  }
-                                });
-                          </script>
+                          <!-- Appointment form handler moved to bottom to ensure scripts loaded -->
                           <!-- Appointment Form Ends -->
 
                         </div>
@@ -294,6 +277,62 @@
 <script src="js/revolution.min.js"></script>
 <script src="js/js-collection.js"></script>
 <script src="js/script.js"></script>
+<script>
+  // Ensure DOM and jQuery are ready
+  (function(){
+    function ready(fn){
+      if(document.readyState !== 'loading'){ fn(); }
+      else { document.addEventListener('DOMContentLoaded', fn); }
+    }
+    ready(function(){
+      var form = document.getElementById('appointment_form');
+      if(!form) return;
+      var btn = form.querySelector('button[type="submit"]');
+      // Create toast element
+      var toast = document.createElement('div');
+      toast.id = 'form-toast';
+      toast.className = 'form-toast';
+      document.body.appendChild(toast);
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        if(btn){ btn.disabled = true; btn.textContent = 'Please wait...'; }
+        var fd = new FormData(form);
+        // Post to Laragon PHP endpoint directly so it works even from the preview server
+        fetch('http://localhost/queebee/sendemail.php', { method: 'POST', body: fd })
+          .then(function(res){
+            var ct = res.headers.get('content-type') || '';
+            if(ct.indexOf('application/json') !== -1){ return res.json(); }
+            return res.text();
+          })
+          .then(function(data){
+            var success = true; var message = 'Message sent successfully.';
+            if(typeof data === 'object'){ success = !!data.success; message = data.message || message; }
+            else {
+              // If PHP echoes plain text, use it as message
+              if((data||'').trim().length) message = (data||'').trim();
+            }
+            showToast(message, success ? 'success' : 'error');
+            if(success){ form.reset(); }
+            if(btn){ btn.disabled = false; btn.textContent = 'Submit Now'; }
+            // Refresh the current contact page after a short delay
+            setTimeout(function(){ window.location.reload(); }, 1500);
+          })
+          .catch(function(err){
+            showToast('Sorry, there was an error processing your request.', 'error');
+            if(btn){ btn.disabled = false; btn.textContent = 'Submit Now'; }
+          });
+      });
+
+      function showToast(message, type){
+        toast.textContent = message;
+        toast.style.display = 'block';
+        toast.className = 'form-toast' + (type === 'error' ? ' error' : '');
+        setTimeout(function(){ toast.style.display = 'none'; }, 5000);
+      }
+    });
+  })();
+</script>
 </body>
 
 <!-- Mirrored from world5.commonsupport.com/html/rashid-wedding/rashid-wedding/rsvp1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Oct 2025 12:59:09 GMT -->
