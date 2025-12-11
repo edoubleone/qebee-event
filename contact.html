@@ -1,337 +1,378 @@
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
 <!-- Mirrored from world5.commonsupport.com/html/rashid-wedding/rashid-wedding/rsvp1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Oct 2025 12:59:09 GMT -->
+
 <head>
-<meta charset="utf-8">
-<title>Welcome to Quebee Events</title>
-<!-- Stylesheets -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/flipclock.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<link href="css/bootstrap-margin-padding.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
-<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+  <meta charset="utf-8">
+  <title>Welcome to Quebee Events</title>
+  <!-- Stylesheets -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/flipclock.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+    .form-toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #28a745;
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 4px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+      z-index: 9999;
+      display: none
+    }
+
+    .form-toast.error {
+      background: #dc3545
+    }
+  </style>
+  <!-- Responsive -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link href="css/bootstrap-margin-padding.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
 
 <body>
-<div class="page-wrapper">
- 	  
+  <div class="page-wrapper">
+
     <!-- Preloader -->
-    
- 	
+
+
     <!-- Main Header -->
     <header class="main-header" id="main-header">
-    	<!-- Header Top -->
-    	<div class="header-top">
-        	<div class="auto-container clearfix">
-            	<!-- Top Left -->
-            	<div class="top-left">
-                	<ul class="clearfix">
-                    	<li><a href="#"><span class="fa fa-circle"></span> Hello guest! Welcome to Quebee Events</a></li>
-                    </ul>
-                </div>
-                <!-- Top Right -->
-                <div class="top-right">
-                	<ul class="clearfix">
-                    	<li><a href="tel:4043843414"><span class="fa fa-phone"></span> 404-384-3414</a></li>
-                        <li><a href="#"><span class="fa fa-clock-o"></span> 9am - 5pm</a></li>
-                        <li><a href="mailto:info@queebeevent.com"><span class="fa fa-at"></span> info@queebeevent.com</a></li>
-                        <li><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4" target="_blank"><span class="fa fa-instagram"></span> quebee__event</a></li>
-                    </ul>
-                </div>
-            </div>
+      <!-- Header Top -->
+      <div class="header-top">
+        <div class="auto-container clearfix">
+          <!-- Top Left -->
+          <div class="top-left">
+            <ul class="clearfix">
+              <li><a href="#"><span class="fa fa-circle"></span> Hello guest! Welcome to Quebee Events</a></li>
+            </ul>
+          </div>
+          <!-- Top Right -->
+          <div class="top-right">
+            <ul class="clearfix">
+              <li><a href="tel:4043843414"><span class="fa fa-phone"></span> 404-384-3414</a></li>
+              <li><a href="#"><span class="fa fa-clock-o"></span> 9am - 5pm</a></li>
+              <li><a href="mailto:info@queebeevent.com"><span class="fa fa-at"></span> info@queebeevent.com</a></li>
+              <li><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4" target="_blank"><span
+                    class="fa fa-instagram"></span> quebee__event</a></li>
+            </ul>
+          </div>
         </div>
-        <!-- Header Top End -->
-        
-        <!-- Header Lower -->
-        <div class="header-lower">
-        	<div class="auto-container clearfix">
-                <!--Outer Box-->
-                <div class="outer-box">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <a href="index.html"><img class="img-responsive" src="images/logo.png" alt="garnen-help"></a>
-                    </div>
-                    <!-- Main Menu -->
-                    <nav class="main-menu">
-                        <div class="navbar-header">
-                            <!-- Toggle Button -->    	
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="navbar-collapse collapse clearfix">
-                            <ul class="navigation">
-                                <li class=""><a href="index.html">Home</a>
-                                  
-                                </li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li class="feature-service"><a href="feature-service.html">Services</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
-                               
-                                
-                               
-                            </ul>
-                        </div>
-                    </nav>
-                    <!-- Main Menu End-->
-                    <!--RSVP Button-->
-                    <div class="appoinment-btn">
-                        <!-- Modal: donate now Starts -->
-                        <a class="thm-btn pt-5 pb-5 mt-5 letter-spacing-1" href="contact.html">contact us</a>
-                    </div>
-                </div>
+      </div>
+      <!-- Header Top End -->
+
+      <!-- Header Lower -->
+      <div class="header-lower">
+        <div class="auto-container clearfix">
+          <!--Outer Box-->
+          <div class="outer-box">
+            <!-- Logo -->
+            <div class="logo">
+              <a href="index.html"><img class="img-responsive" src="images/logo.png" alt="garnen-help"></a>
             </div>
+            <!-- Main Menu -->
+            <nav class="main-menu">
+              <div class="navbar-header">
+                <!-- Toggle Button -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+              <div class="navbar-collapse collapse clearfix">
+                <ul class="navigation">
+                  <li class=""><a href="index.html">Home</a>
+
+                  </li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li class="feature-service"><a href="feature-service.html">Services</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+
+
+
+                </ul>
+              </div>
+            </nav>
+            <!-- Main Menu End-->
+            <!--RSVP Button-->
+            <div class="appoinment-btn">
+              <!-- Modal: donate now Starts -->
+              <a class="thm-btn pt-5 pb-5 mt-5 letter-spacing-1" href="contact.html">contact us</a>
+            </div>
+          </div>
         </div>
-        <!-- Header Lower End-->
-        
+      </div>
+      <!-- Header Lower End-->
+
     </header>
     <!--End Main Header -->
-    
-    
+
+
     <!--Page Title-->
     <section class="page-title" data-bg-img="images/background/page-title-1.jpg">
-        <div class="auto-container">
-            <h1>Contact Us</h1>
-            
-            <ul class="bread-crumb">
-            	<li><a href="index.html">Home</a></li>
-                <li><a href="#">Contact us</a></li>
-            </ul>
-            
+      <div class="auto-container">
+        <h1>Contact Us</h1>
+
+        <ul class="bread-crumb">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+
+      </div>
+
+      <!--Go Down Button-->
+      <div class="go-down">
+        <div class="curve scroll-to-target" data-target="#about-section"><span class="icon fa fa-arrow-down"></span>
         </div>
-        
-        <!--Go Down Button-->
-        <div class="go-down">
-            <div class="curve scroll-to-target" data-target="#about-section"><span class="icon fa fa-arrow-down"></span></div>
-        </div>
-        
+      </div>
+
     </section>
-    
-    
+
+
     <!--About Section-->
     <section class="about-section" id="about-section">
-    	<!--Desc Box-->
-    
-       
-        <!--Lower Content-->
-        <div class="lower-content" data-bg-img="images/background/bg-pattern.png">
-        	<div class="auto-container">
-            	<div class="content-box">
-                	<div class="row clearfix">
-                    	
-                        <div class="col-md-7">
-                          <h4 class="text-thm title-border font-weight-700 mt-0 mb-10">Contact Us</h4>
-                          <!-- <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro similique ipsa deleniti doloribus fuga dicta id voluptate, excepturi nostrum cupiditate</p> -->
+      <!--Desc Box-->
 
-                          <!-- Appointment Form Sart-->
-                           <form id="appointment_form" name="appointment_form" class="form-transparent mt-30" method="post" action="sendemail.php">
-                            <div class="row">
-                              <div class="col-sm-12">
-                                <div class="form-group mb-20">
-                                  <input data-height="45px" id="rsvp_name" name="rsvp_name" class="form-control bdrs-0" type="text" required="" placeholder="Full Name" aria-required="true">
-                                </div>
-                              </div>                  
-                            </div>
-                            <div class="row">
-                              <div class="col-sm-6">
-                                <div class="form-group mb-20">
-                                  <input data-height="45px" id="rsvp_email" name="rsvp_email" class="form-control bdrs-0 required email" type="email" placeholder="Enter Email" aria-required="true">
-                                </div>
-                              </div>
-                              <div class="col-sm-6">
-                                <div class="form-group mb-20">
-                                  <input data-height="45px" id="form_phone" name="form_phone" class="form-control bdrs-0 required" type="text" placeholder="Enter Phone" aria-required="true">
-                                </div>
-                              </div>
-                                  
-                            </div>
-                            
-                            <div class="form-group mb-20">
-                              <textarea id="form_message" name="form_message" class="form-control bdrs-0 required" data-height="120px" placeholder="Enter Message" rows="5" aria-required="true"></textarea>
-                            </div>
-                            <div class="form-group mb-0 mt-20">
-                              <input id="form_botcheck" name="form_botcheck" class="form-control bdrs-0" type="hidden" value="">
-                              <button type="submit" class="btn thm-btn btn-flat" data-loading-text="Please wait...">Submit Now</button>
-                            </div>
-                          </form>
 
-                          <!-- Appointment Form Ends -->
+      <!--Lower Content-->
+      <div class="lower-content" data-bg-img="images/background/bg-pattern.png">
+        <div class="auto-container">
+          <div class="content-box">
+            <div class="row clearfix">
 
-                        </div>
-                        <div class="col-md-5">
-                          <img alt="" src="images/resource/image-forlift2.png" class="img-responsive img-fullwidth">
-                        </div>
-                        
+              <div class="col-md-7">
+                <h4 class="text-thm title-border font-weight-700 mt-0 mb-10">Contact Us</h4>
+                <!-- <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro similique ipsa deleniti doloribus fuga dicta id voluptate, excepturi nostrum cupiditate</p> -->
+
+                <!-- Appointment Form Sart-->
+                <form id="appointment_form" name="appointment_form" class="form-transparent mt-30" method="post"
+                  action="sendemail.php">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group mb-20">
+                        <input data-height="45px" id="rsvp_name" name="rsvp_name" class="form-control bdrs-0"
+                          type="text" required="" placeholder="Full Name" aria-required="true">
+                      </div>
                     </div>
-                    
-                </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group mb-20">
+                        <input data-height="45px" id="rsvp_email" name="rsvp_email"
+                          class="form-control bdrs-0 required email" type="email" placeholder="Enter Email"
+                          aria-required="true">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group mb-20">
+                        <input data-height="45px" id="form_phone" name="form_phone" class="form-control bdrs-0 required"
+                          type="text" placeholder="Enter Phone" aria-required="true">
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group mb-20">
+                    <textarea id="form_message" name="form_message" class="form-control bdrs-0 required"
+                      data-height="120px" placeholder="Enter Message" rows="5" aria-required="true"></textarea>
+                  </div>
+                  <div class="form-group mb-0 mt-20">
+                    <input id="form_botcheck" name="form_botcheck" class="form-control bdrs-0" type="hidden" value="">
+                    <button type="submit" class="btn thm-btn btn-flat" data-loading-text="Please wait...">Submit
+                      Now</button>
+                  </div>
+                </form>
+                <!-- Appointment form handler moved to bottom to ensure scripts loaded -->
+                <!-- Appointment Form Ends -->
+
+              </div>
+              <div class="col-md-5">
+                <img alt="" src="images/resource/image-forlift2.png" class="img-responsive img-fullwidth">
+              </div>
+
             </div>
-        </div>         
+
+          </div>
+        </div>
+      </div>
     </section>
-    
-    
+
+
     <!--Main Footer-->
-      <footer class="main-footer">
-    	
-        <!--Footer Upper-->
-        <div class="footer-upper">
-        	<!--Go Up Button-->
-            <div class="go-up">
-            	<div class="curve scroll-to-target" data-target="#main-header"><span class="icon fa fa-arrow-up"></span></div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6 col-xs-12 column">
-                        <div class="footer-widget about-widget">
-                            <h2>About Quebee Events</h2>
-                            <div class="text">
-                                <p>At Quebee Events, we don't just plan—we create experiences that linger long after the lights go out. Whether it's a lavish wedding, a corporate gala, or an intimate celebration, our team brings precision, passion, and a touch of magic to every detail. Based in Lagos and buzzing with creativity, we turn your vision into unforgettable reality.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 column">
-                        <div class="footer-widget links">
-                            <h2>Services</h2>
-                            <ul>
-                                <li><a href="consultation.html">Free Consultation</a></li>
-                                <li><a href="Eru-Iyawo-Packages.html">Eru Iyawo Packages</a></li>
-                                <li><a href="baby-shower.html">Baby Shower Planning</a></li>
-                                <li><a href="personal-shopper.html">Personal Shopper (within Nigeria and USA)</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 column">
-                        <div class="footer-widget twitter-feed">
-                            <h2>Twitter Feed</h2>
-                            <div class="twitter"
-                                data-twitter-query-count="2"
-                                data-twitter-name="envato"
-                                data-slide-count="3"
-                                data-enable-slide="false">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-12 column">
-                        <div class="footer-widget newsletter-widget">
-                            <h2>Stay Updated</h2>
-                            <div class="text"><p>Subscribe to our newsletter and never miss an event update, special offer, or new service from Quebee Events. We bring precision, passion, and a touch of magic to every celebration.</p>
-                            </div>
-                            <br>
-                            <div class="form-box">
-                                <form method="post" action="http://world5.commonsupport.com/html/rashid-wedding/rashid-wedding/index.html">
-                                    <div class="form-group">
-                                        <input type="email" name="email" value="" placeholder="Enter your email here..." required>                                                
-                                        <button type="submit" class="btn-submit"><span class="icon fa fa-long-arrow-right"></span></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="contact-info">
-                        <ul>
-                            
-                            <!-- Added contact information -->
-                            <li><div class="info-title"><span class="fa fa-phone"></span> Contact</div><p class="info">404-384-3414</p></li>
-                            <li><div class="info-title"><span class="fa fa-at"></span> Email</div><p class="info"><a href="mailto:info@queebeevent.com">info@queebeevent.com</a></p></li>
-                            <li><div class="info-title"><span class="fa fa-instagram"></span> Instagram</div><p class="info"><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4" target="_blank">quebee__event</a></p></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <footer class="main-footer">
+
+      <!--Footer Upper-->
+      <div class="footer-upper">
+        <!--Go Up Button-->
+        <div class="go-up">
+          <div class="curve scroll-to-target" data-target="#main-header"><span class="icon fa fa-arrow-up"></span></div>
         </div>
-        <!--Footer Bottom-->
-    	<div class="footer-bottom">
-            <div class="auto-container">
-                <!--Copyright-->
-                <div class="copyright">© 2025 Edoubleone Inc. All rights reserved</div>
-           
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 column">
+              <div class="footer-widget about-widget">
+                <h2>About Quebee Events</h2>
+                <div class="text">
+                  <p>At Quebee Events, we don't just plan—we create experiences that linger long after the lights go
+                    out. Whether it's a lavish wedding, a corporate gala, or an intimate celebration, our team brings
+                    precision, passion, and a touch of magic to every detail. Based in Lagos and buzzing with
+                    creativity, we turn your vision into unforgettable reality.</p>
+                </div>
+              </div>
             </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 column">
+              <div class="footer-widget links">
+                <h2>Services</h2>
+                <ul>
+                  <li><a href="consultation.html">Free Consultation</a></li>
+                  <li><a href="Eru-Iyawo-Packages.html">Eru Iyawo Packages</a></li>
+                  <li><a href="baby-shower.html">Baby Shower Planning</a></li>
+                  <li><a href="personal-shopper.html">Personal Shopper (within Nigeria and USA)</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 column">
+              <div class="footer-widget twitter-feed">
+                <h2>Twitter Feed</h2>
+                <div class="twitter" data-twitter-query-count="2" data-twitter-name="envato" data-slide-count="3"
+                  data-enable-slide="false">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 column">
+              <div class="footer-widget newsletter-widget">
+                <h2>Stay Updated</h2>
+                <div class="text">
+                  <p>Subscribe to our newsletter and never miss an event update, special offer, or new service from
+                    Quebee Events. We bring precision, passion, and a touch of magic to every celebration.</p>
+                </div>
+                <br>
+                <div class="form-box">
+                  <form method="post"
+                    action="http://world5.commonsupport.com/html/rashid-wedding/rashid-wedding/index.html">
+                    <div class="form-group">
+                      <input type="email" name="email" value="" placeholder="Enter your email here..." required>
+                      <button type="submit" class="btn-submit"><span
+                          class="icon fa fa-long-arrow-right"></span></button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="contact-info">
+              <ul>
+
+                <!-- Added contact information -->
+                <li>
+                  <div class="info-title"><span class="fa fa-phone"></span> Contact</div>
+                  <p class="info">404-384-3414</p>
+                </li>
+                <li>
+                  <div class="info-title"><span class="fa fa-at"></span> Email</div>
+                  <p class="info"><a href="mailto:info@queebeevent.com">info@queebeevent.com</a></p>
+                </li>
+                <li>
+                  <div class="info-title"><span class="fa fa-instagram"></span> Instagram</div>
+                  <p class="info"><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4"
+                      target="_blank">quebee__event</a></p>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        
+      </div>
+      <!--Footer Bottom-->
+      <div class="footer-bottom">
+        <div class="auto-container">
+          <!--Copyright-->
+          <div class="copyright">© 2025 Edoubleone Inc. All rights reserved</div>
+
+        </div>
+      </div>
+
     </footer>
-    
-    
-</div>
-<!--End pagewrapper-->
 
-<!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="#main-header"><span class="fa fa-arrow-up"></span></div>
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/revolution.min.js"></script>
-<script src="js/js-collection.js"></script>
-<script src="js/script.js"></script>
+  </div>
+  <!--End pagewrapper-->
 
-<!-- Appointment Form Validation -->
-<script type="text/javascript">
-  $(document).ready(function() {
-    // Handle form submission
-    $("#appointment_form").on('submit', function(e) {
-      e.preventDefault(); // Prevent default form submission
-      
-      var form = this;
-      var form_btn = $(form).find('button[type="submit"]');
-      var form_result_div = '#form-result';
-      
-      // Remove any existing result div
-      $(form_result_div).remove();
-      
-      // Show loading state
-      form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-      var form_btn_old_msg = form_btn.html();
-      form_btn.html(form_btn.data("loading-text"));
-      
-      // Submit form via AJAX
-      $.ajax({
-        type: "POST",
-        url: "sendemail.php",
-        data: $(form).serialize(),
-        dataType: "json",
-        success: function(response) {
-          form_btn.html(form_btn_old_msg);
-          if (response.success) {
-            $(form).find('.form-control').val('');
-            $(form_result_div).removeClass('alert-danger').addClass('alert-success').html(response.message).fadeIn('slow');
-          } else {
-            $(form_result_div).removeClass('alert-success').addClass('alert-danger').html(response.message).fadeIn('slow');
-          }
-          setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-        },
-        error: function(xhr, textStatus, errorThrown) {
-          form_btn.html(form_btn_old_msg);
-          // Check if we received JSON or raw PHP code
-          if (xhr.responseText && xhr.responseText.indexOf('<?php') !== -1) {
-            $(form_result_div).removeClass('alert-success').addClass('alert-danger').html('Server configuration error: PHP is not processing form submissions correctly.').fadeIn('slow');
-          } else {
-            // Try to parse response as JSON if it's not already
-            try {
-              var response = JSON.parse(xhr.responseText);
-              $(form_result_div).removeClass('alert-success').addClass('alert-danger').html(response.message).fadeIn('slow');
-            } catch (e) {
-              $(form_result_div).removeClass('alert-success').addClass('alert-danger').html('Sorry, there was an error processing your request.').fadeIn('slow');
-            }
-          }
-          setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
+  <!--Scroll to top-->
+  <div class="scroll-to-top scroll-to-target" data-target="#main-header"><span class="fa fa-arrow-up"></span></div>
+
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/revolution.min.js"></script>
+  <script src="js/js-collection.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    // Ensure DOM and jQuery are ready
+    (function () {
+      function ready(fn) {
+        if (document.readyState !== 'loading') { fn(); }
+        else { document.addEventListener('DOMContentLoaded', fn); }
+      }
+      ready(function () {
+        var form = document.getElementById('appointment_form');
+        if (!form) return;
+        var btn = form.querySelector('button[type="submit"]');
+        // Create toast element
+        var toast = document.createElement('div');
+        toast.id = 'form-toast';
+        toast.className = 'form-toast';
+        document.body.appendChild(toast);
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (btn) { btn.disabled = true; btn.textContent = 'Please wait...'; }
+          var fd = new FormData(form);
+          // Post to relative sendemail.php so it works anywhere
+          fetch('sendemail.php', { method: 'POST', body: fd })
+            .then(function (res) {
+              var ct = res.headers.get('content-type') || '';
+              if (ct.indexOf('application/json') !== -1) { return res.json(); }
+              return res.text();
+            })
+            .then(function (data) {
+              var success = true; var message = 'Message sent successfully.';
+              if (typeof data === 'object') { success = !!data.success; message = data.message || message; }
+              else {
+                // If PHP echoes plain text, use it as message
+                if ((data || '').trim().length) message = (data || '').trim();
+              }
+              showToast(message, success ? 'success' : 'error');
+              if (success) { form.reset(); }
+              if (btn) { btn.disabled = false; btn.textContent = 'Submit Now'; }
+              // Refresh the current contact page after a short delay
+              setTimeout(function () { window.location.reload(); }, 1500);
+            })
+            .catch(function (err) {
+              showToast('Sorry, there was an error processing your request.', 'error');
+              if (btn) { btn.disabled = false; btn.textContent = 'Submit Now'; }
+            });
+        });
+
+        function showToast(message, type) {
+          toast.textContent = message;
+          toast.style.display = 'block';
+          toast.className = 'form-toast' + (type === 'error' ? ' error' : '');
+          setTimeout(function () { toast.style.display = 'none'; }, 5000);
         }
       });
-      
-      return false; // Prevent default form submission
-    });
-  });
-</script>
+    })();
+  </script>
 </body>
 
 <!-- Mirrored from world5.commonsupport.com/html/rashid-wedding/rashid-wedding/rsvp1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Oct 2025 12:59:09 GMT -->
+
 </html>

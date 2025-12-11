@@ -4,7 +4,7 @@ if (function_exists('mail')) {
     echo "Mail function is available\n";
     
     // Test sending a simple email
-    $to = "info@queebeevent.com";
+    $to = "quebeevents30@gmail.com";
     $subject = "Test Email from Quebee Events";
     $message = "This is a test email to check if the mail function is working properly.";
     $headers = "From: webmaster@" . $_SERVER['SERVER_NAME'] . "\r\n";
