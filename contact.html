@@ -41,7 +41,7 @@
                 	<ul class="clearfix">
                     	<li><a href="tel:4043843414"><span class="fa fa-phone"></span> 404-384-3414</a></li>
                         <li><a href="#"><span class="fa fa-clock-o"></span> 9am - 5pm</a></li>
-                        <li><a href="mailto:quebeevents30@gmail.com"><span class="fa fa-at"></span> quebeevents30@gmail.com</a></li>
+                        <li><a href="mailto:info@queebeevent.com"><span class="fa fa-at"></span> info@queebeevent.com</a></li>
                         <li><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4" target="_blank"><span class="fa fa-instagram"></span> quebee__event</a></li>
                     </ul>
                 </div>
@@ -133,7 +133,7 @@
                           <!-- <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro similique ipsa deleniti doloribus fuga dicta id voluptate, excepturi nostrum cupiditate</p> -->
 
                           <!-- Appointment Form Sart-->
-                           <form id="appointment_form" name="appointment_form" class="form-transparent mt-30" method="post" action="http://world5.commonsupport.com/html/rashid-wedding/rashid-wedding/inc/rsvp.php">
+                           <form id="appointment_form" name="appointment_form" class="form-transparent mt-30" method="post" action="sendemail.php">
                             <div class="row">
                               <div class="col-sm-12">
                                 <div class="form-group mb-20">
@@ -163,28 +163,7 @@
                               <button type="submit" class="btn thm-btn btn-flat" data-loading-text="Please wait...">Submit Now</button>
                             </div>
                           </form>
-                          <!-- Appointment Form Validation-->
-                          <script type="text/javascript">
-                                $("#appointment_form").validate({
-                                  submitHandler: function(form) {
-                                    var form_btn = $(form).find('button[type="submit"]');
-                                    var form_result_div = '#form-result';
-                                    $(form_result_div).remove();
-                                    form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                                    var form_btn_old_msg = form_btn.html();
-                                    form_btn.html(form_btn.data("loading-text"));
-                                    $(form).ajaxSubmit({
-                                      target: form_result_div,
-                                      success: function(data) {
-                                        form_btn.html(form_btn_old_msg);
-                                        $(form).find('.form-control').val('');
-                                        $(form_result_div).fadeIn('slow');
-                                        setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                                      }
-                                    });
-                                  }
-                                });
-                          </script>
+
                           <!-- Appointment Form Ends -->
 
                         </div>
@@ -264,7 +243,7 @@
                             
                             <!-- Added contact information -->
                             <li><div class="info-title"><span class="fa fa-phone"></span> Contact</div><p class="info">404-384-3414</p></li>
-                            <li><div class="info-title"><span class="fa fa-at"></span> Email</div><p class="info"><a href="mailto:quebeevents30@gmail.com">quebeevents30@gmail.com</a></p></li>
+                            <li><div class="info-title"><span class="fa fa-at"></span> Email</div><p class="info"><a href="mailto:info@queebeevent.com">info@queebeevent.com</a></p></li>
                             <li><div class="info-title"><span class="fa fa-instagram"></span> Instagram</div><p class="info"><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4" target="_blank">quebee__event</a></p></li>
                         </ul>
                     </div>
@@ -294,6 +273,64 @@
 <script src="js/revolution.min.js"></script>
 <script src="js/js-collection.js"></script>
 <script src="js/script.js"></script>
+
+<!-- Appointment Form Validation -->
+<script type="text/javascript">
+  $(document).ready(function() {
+    // Handle form submission
+    $("#appointment_form").on('submit', function(e) {
+      e.preventDefault(); // Prevent default form submission
+      
+      var form = this;
+      var form_btn = $(form).find('button[type="submit"]');
+      var form_result_div = '#form-result';
+      
+      // Remove any existing result div
+      $(form_result_div).remove();
+      
+      // Show loading state
+      form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
+      var form_btn_old_msg = form_btn.html();
+      form_btn.html(form_btn.data("loading-text"));
+      
+      // Submit form via AJAX
+      $.ajax({
+        type: "POST",
+        url: "sendemail.php",
+        data: $(form).serialize(),
+        dataType: "json",
+        success: function(response) {
+          form_btn.html(form_btn_old_msg);
+          if (response.success) {
+            $(form).find('.form-control').val('');
+            $(form_result_div).removeClass('alert-danger').addClass('alert-success').html(response.message).fadeIn('slow');
+          } else {
+            $(form_result_div).removeClass('alert-success').addClass('alert-danger').html(response.message).fadeIn('slow');
+          }
+          setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          form_btn.html(form_btn_old_msg);
+          // Check if we received JSON or raw PHP code
+          if (xhr.responseText && xhr.responseText.indexOf('<?php') !== -1) {
+            $(form_result_div).removeClass('alert-success').addClass('alert-danger').html('Server configuration error: PHP is not processing form submissions correctly.').fadeIn('slow');
+          } else {
+            // Try to parse response as JSON if it's not already
+            try {
+              var response = JSON.parse(xhr.responseText);
+              $(form_result_div).removeClass('alert-success').addClass('alert-danger').html(response.message).fadeIn('slow');
+            } catch (e) {
+              $(form_result_div).removeClass('alert-success').addClass('alert-danger').html('Sorry, there was an error processing your request.').fadeIn('slow');
+            }
+          }
+          setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
+        }
+      });
+      
+      return false; // Prevent default form submission
+    });
+  });
+</script>
 </body>
 
 <!-- Mirrored from world5.commonsupport.com/html/rashid-wedding/rashid-wedding/rsvp1.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Oct 2025 12:59:09 GMT -->

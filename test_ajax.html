@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Test</title>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <h1>AJAX Test for Contact Form</h1>
+    <button id="test-btn">Test AJAX Request</button>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#test-btn').click(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "sendemail.php",
+                    data: {
+                        rsvp_name: "Test User",
+                        rsvp_email: "test@example.com",
+                        form_phone: "123-456-7890",
+                        form_message: "This is a test message"
+                    },
+                    dataType: "json",
+                    success: function(response) {
+                        $('#result').html('<p style="color: green;">Success: ' + response.message + '</p>');
+                    },
+                    error: function(xhr, textStatus, errorThrown) {
+                        $('#result').html('<p style="color: red;">Error: ' + textStatus + ' - ' + errorThrown + '</p>');
+                        console.log('Response text:', xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -2,519 +2,1110 @@
 <html dir="ltr" lang="en">
 
 <!-- Mirrored from world5.commonsupport.com/html/rashid-wedding/rashid-wedding/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Oct 2025 12:59:07 GMT -->
+
 <head>
-<meta charset="utf-8">
-<title>]Welcome to Quebee Events</title>
-<!-- Stylesheets -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/flipclock.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
-<!-- Responsive -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<link href="css/bootstrap-margin-padding.css" rel="stylesheet">
-<link href="css/responsive.css" rel="stylesheet">
-<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+    <meta charset="utf-8">
+    <title>]Welcome to Quebee Events</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/flipclock.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/bootstrap-margin-padding.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <style>
+        /* Gallery Carousel with Arrow Navigation */
+        .gallery-carousel-wrapper {
+            position: relative;
+            width: 100%;
+            padding: 0 60px;
+        }
+
+        .gallery-carousel-container {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery-carousel-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .gallery-carousel-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .gallery-carousel-container::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+        }
+
+        .gallery-carousel-container .row {
+            display: flex;
+            flex-wrap: nowrap;
+            margin: 0;
+        }
+
+        .gallery-carousel-container .column {
+            flex: 0 0 auto;
+            width: 300px;
+            padding: 0 10px;
+        }
+
+        .gallery-carousel-container .column figure {
+            margin: 0;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .gallery-carousel-container .column .video-gallery-item {
+            height: 400px;
+            width: 100%;
+        }
+
+        .gallery-carousel-container .column figure.mr-5 {
+            margin-right: 0 !important;
+        }
+
+        .gallery-carousel-container .column figure a {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+
+        .gallery-carousel-container .column figure img,
+        .gallery-carousel-container .column .video-gallery-item video {
+            width: 100% !important;
+            height: 400px !important;
+            min-height: 400px !important;
+            max-height: 400px !important;
+            object-fit: cover !important;
+            display: block !important;
+        }
+
+        .gallery-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-arrow:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-arrow i {
+            font-size: 20px;
+            color: #333;
+        }
+
+        .gallery-arrow-left {
+            left: 0;
+        }
+
+        .gallery-arrow-right {
+            right: 0;
+        }
+
+        @media (max-width: 768px) {
+            .gallery-carousel-wrapper {
+                padding: 0 40px;
+            }
+
+            .gallery-section {
+                background-image: url(images/resource/blog-image-3.jpg) !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-attachment: scroll !important;
+            }
+
+            .gallery-carousel-container .column {
+                width: 250px;
+            }
+
+            .gallery-carousel-container .column figure,
+            .gallery-carousel-container .column .video-gallery-item {
+                height: 350px !important;
+            }
+
+            .gallery-carousel-container .column figure img,
+            .gallery-carousel-container .column .video-gallery-item video {
+                height: 350px !important;
+                min-height: 350px !important;
+                max-height: 350px !important;
+            }
+
+            .gallery-arrow {
+                width: 40px;
+                height: 40px;
+            }
+
+            .gallery-arrow i {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-carousel-wrapper {
+                padding: 0 30px;
+            }
+
+            .gallery-carousel-container .column {
+                width: 220px;
+            }
+
+            .gallery-carousel-container .column figure,
+            .gallery-carousel-container .column .video-gallery-item {
+                height: 300px;
+            }
+
+            .gallery-carousel-container .column figure img,
+            .gallery-carousel-container .column .video-gallery-item video {
+                height: 300px;
+            }
+
+            .gallery-arrow {
+                width: 35px;
+                height: 35px;
+            }
+
+            .gallery-arrow i {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 </head>
 
 <body>
-<div class="page-wrapper">
- 	  
-    <!-- Preloader -->
-    
- 	
-    <!-- Main Header -->
-    <header class="main-header" id="main-header">
-    	<!-- Header Top -->
-    	<div class="header-top">
-        	<div class="auto-container clearfix">
-            	<!-- Top Left -->
-            	<div class="top-left">
-                	<ul class="clearfix">
-                    	<li><a href="#"><span class="fa fa-circle"></span> Hello guest! Welcome to Quebee Events</a></li>
-                    </ul>
-                </div>
-                <!-- Top Right -->
-                <div class="top-right">
-                	<ul class="clearfix">
-                    	<li><a href="tel:4043843414"><span class="fa fa-phone"></span> 404-384-3414</a></li>
-                        <li><a href="#"><span class="fa fa-clock-o"></span> 9am - 5pm</a></li>
-                        <li><a href="mailto:quebeevents30@gmail.com"><span class="fa fa-at"></span> quebeevents30@gmail.com</a></li>
-                        <li><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4" target="_blank"><span class="fa fa-instagram"></span> quebee__event</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Header Top End -->
-        
-        <!-- Header Lower -->
-        <div class="header-lower">
-        	<div class="auto-container clearfix">
-                <!--Outer Box-->
-                <div class="outer-box">
-                    <!-- Logo -->
-                    <div class="logo">
-                        <a href="index.html"><img class="img-responsive" src="images/logo.png" alt="garnen-help"></a>
-                    </div>
-                    <!-- Main Menu -->
-                    <nav class="main-menu">
-                        <div class="navbar-header">
-                            <!-- Toggle Button -->    	
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="navbar-collapse collapse clearfix">
-                            <ul class="navigation">
-                                <li class=""><a href="index.html">Home</a>
-                                  
-                                </li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li class="feature-service"><a href="feature-service.html">Services</a></li>
-                                <li><a href="contact.html">Contact Us</a></li>
-                               
-                                
-                               
-                            </ul>
-                        </div>
-                    </nav>
-                    <!-- Main Menu End-->
-                    <!--RSVP Button-->
-                    <div class="appoinment-btn">
-                        <!-- Modal: donate now Starts -->
-                        <a class="thm-btn pt-5 pb-5 mt-5 letter-spacing-1" href="contact.html">contact us</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Header Lower End-->
-        
-    </header>
-    <!--End Main Header -->
-    
-    
-    <!-- Static Banner Parallax Background-->
-    <section class="main-slider default-banner">
-        <!--Carousel-->      
-        <div id="default-slider" class="carousel" data-ride="carousel" data-interval="7000" data-pause="false" data-wrap="true">
-            <div class="carousel-inner" role="listbox">
-                <!--Slide Item-->
-                <div class="item window-size active" data-bg-img="images/main-slider/4.jpg">
-              	    <div class="auto-container">
-                	<div class="box-inner">
-                        <div class="big-title"><h2>QUEBEE EVENTS</h2></div>
-                        <h4 class="text-white font-24">Creating Unforgettable Experiences</h4>
-                        <div class="text"><p>At Quebee Events, we create experiences that linger long after the lights go out. Our team brings precision, passion, and a touch of magic to every detail.</p></div>
-                        <div class="links-box"><a href="feature-service.html" class="default-btn theme-btn">Our Services</a> &ensp; <a href="contact.html" class="default-btn style-two theme-btn">Get Free Quote</a></div>
-                    </div>
-              	    </div>
-                </div>
-                <!--Slide Item-->
-                <div class="item window-size" data-bg-img="images/main-slider/1.jpg">
-                    <div class="auto-container">
-                    <div class="box-inner">
-                        <div class="big-title"><h2>WEDDING PARTY PLANNING</h2></div>
-                        <h4 class="text-white font-24">Where Love Meets Perfection</h4>
-                        <div class="text"><p>At Quebee Events, we believe that a wedding is more than a ceremony—it's a celebration of love and unforgettable moments. Our wedding party planning service turns your vision into a flawless experience.</p></div>
-                        <div class="links-box"><a href="wedding.html" class="default-btn theme-btn">View Details</a> &ensp; <a href="consultation.html" class="default-btn style-two theme-btn">Free Consultation</a></div>
-                    </div>
-              	    </div>
-                </div>
-                <!--Slide Item-->
-                <div class="item window-size" data-bg-img="images/main-slider/2.jpg">
-                    <div class="auto-container">
-                    <div class="box-inner">
-                        <div class="big-title"><h2>EVENT COORDINATION</h2></div>
-                        <h4 class="text-white font-24">Every Occasion Deserves to Be Unforgettable</h4>
-                        <div class="text"><p>At Quebee Events, we believe that every occasion deserves to be unforgettable. We specialize in transforming ideas into seamless experiences with elegance and precision.</p></div>
-                        <div class="links-box"><a href="event.html" class="default-btn theme-btn">Learn More</a> &ensp; <a href="quotation.html" class="default-btn style-two theme-btn">Get Quotation</a></div>
-                    </div>
-              	    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
+    <div class="page-wrapper">
 
-    
- <section class="about-section" id="about-section">
-    	<!--Desc Box-->
-    
-       <!--Lower Content-->
-        <div class="lower-content">
-        	<div class="auto-container">
-            	<div class="content-box">
-                	<div class="row clearfix">
-                        <!--Column-->
-                    	<div class="col-md-7  col-sm-7 col-xs-12 column">
-                        	<h2 class="main-title">About Us</h2>
-                           
-							<p>At Quebee Events, we create experiences that linger long after the lights go out. Our team brings precision, passion, and a touch of magic to every detail. Based in based in Nigeria and USA and buzzing with creativity, we turn your vision into unforgettable reality.</p>
-                          
-                            
-                          
-                            
-                           
+        <!-- Preloader -->
+
+
+        <!-- Main Header -->
+        <header class="main-header" id="main-header">
+            <!-- Header Top -->
+            <div class="header-top">
+                <div class="auto-container clearfix">
+                    <!-- Top Left -->
+                    <div class="top-left">
+                        <ul class="clearfix">
+                            <li><a href="#"><span class="fa fa-circle"></span> Hello guest! Welcome to Quebee Events</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Top Right -->
+                    <div class="top-right">
+                        <ul class="clearfix">
+                            <li><a href="tel:4043843414"><span class="fa fa-phone"></span> 404-384-3414</a></li>
+                            <li><a href="#"><span class="fa fa-clock-o"></span> 9am - 5pm</a></li>
+                            <li><a href="mailto:info@queebeevent.com"><span class="fa fa-at"></span>
+                                    info@queebeevent.com</a></li>
+                            <li><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4"
+                                    target="_blank"><span class="fa fa-instagram"></span> quebee__event</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Top End -->
+
+            <!-- Header Lower -->
+            <div class="header-lower">
+                <div class="auto-container clearfix">
+                    <!--Outer Box-->
+                    <div class="outer-box">
+                        <!-- Logo -->
+                        <div class="logo">
+                            <a href="index.html"><img class="img-responsive" src="images/logo.png"
+                                    alt="garnen-help"></a>
                         </div>
-                        <!--Column-->
-                    	<div class="col-md-5  col-sm-5 col-xs-12 column">
-                            <article class="featured-box">
-                            	<figure class="image"><a href="#"><img class="img-responsive" src="images/resource/featured-image-5.jpg" alt=""></a></figure>
-                               
-                            </article>                            
-                          
+                        <!-- Main Menu -->
+                        <nav class="main-menu">
+                            <div class="navbar-header">
+                                <!-- Toggle Button -->
+                                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                    data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="navbar-collapse collapse clearfix">
+                                <ul class="navigation">
+                                    <li class=""><a href="index.html">Home</a>
+
+                                    </li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li class="feature-service"><a href="feature-service.html">Services</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+
+
+
+                                </ul>
+                            </div>
+                        </nav>
+                        <!-- Main Menu End-->
+                        <!--RSVP Button-->
+                        <div class="appoinment-btn">
+                            <!-- Modal: donate now Starts -->
+                            <a class="thm-btn pt-5 pb-5 mt-5 letter-spacing-1" href="contact.html">contact us</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <!-- Header Lower End-->
 
-    
-    <!--Start Our Department Areas-->
-    <section class="pt-10">
-        <div class="container-fluid pb-10">
-            <div class="sec-title text-center">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <h2 class="font-sacramento text-thm">OUR FEATURE SERVICE</h2>
-                        <h3>WE CARE OUR FEATURE SUPPORT</h3>
-                        <div class="mb-15 mt-10"> <img class="img-responsive" src="images/title-bottom.png" alt=""></div>                    
-                    </div>                    
+        </header>
+        <!--End Main Header -->
+
+
+        <!-- Static Banner Parallax Background-->
+        <section class="main-slider default-banner">
+            <!--Carousel-->
+            <div id="default-slider" class="carousel" data-ride="carousel" data-interval="7000" data-pause="false"
+                data-wrap="true">
+                <div class="carousel-inner" role="listbox">
+                    <!--Slide Item-->
+                    <div class="item window-size active" data-bg-img="images/main-slider/4.jpg">
+                        <div class="auto-container">
+                            <div class="box-inner">
+                                <div class="big-title">
+                                    <h2>QUEBEE EVENTS</h2>
+                                </div>
+                                <h4 class="text-white font-24">Creating Unforgettable Experiences</h4>
+                                <div class="text">
+                                    <p>At Quebee Events, we create experiences that linger long after the lights go out.
+                                        Our team brings precision, passion, and a touch of magic to every detail.</p>
+                                </div>
+                                <div class="links-box"><a href="feature-service.html" class="default-btn theme-btn">Our
+                                        Services</a> &ensp; <a href="contact.html"
+                                        class="default-btn style-two theme-btn">Get Free Quote</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Slide Item-->
+                    <div class="item window-size" data-bg-img="images/main-slider/1.jpg">
+                        <div class="auto-container">
+                            <div class="box-inner">
+                                <div class="big-title">
+                                    <h2>WEDDING PARTY PLANNING</h2>
+                                </div>
+                                <h4 class="text-white font-24">Where Love Meets Perfection</h4>
+                                <div class="text">
+                                    <p>At Quebee Events, we believe that a wedding is more than a ceremony—it's a
+                                        celebration of love and unforgettable moments. Our wedding party planning
+                                        service turns your vision into a flawless experience.</p>
+                                </div>
+                                <div class="links-box"><a href="wedding.html" class="default-btn theme-btn">View
+                                        Details</a> &ensp; <a href="consultation.html"
+                                        class="default-btn style-two theme-btn">Free Consultation</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Slide Item-->
+                    <div class="item window-size" data-bg-img="images/main-slider/2.jpg">
+                        <div class="auto-container">
+                            <div class="box-inner">
+                                <div class="big-title">
+                                    <h2>EVENT COORDINATION</h2>
+                                </div>
+                                <h4 class="text-white font-24">Every Occasion Deserves to Be Unforgettable</h4>
+                                <div class="text">
+                                    <p>At Quebee Events, we believe that every occasion deserves to be unforgettable. We
+                                        specialize in transforming ideas into seamless experiences with elegance and
+                                        precision.</p>
+                                </div>
+                                <div class="links-box"><a href="event.html" class="default-btn theme-btn">Learn More</a>
+                                    &ensp; <a href="budget.html" class="default-btn style-two theme-btn">Get Budget</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="sec-content mt-20">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/featured-image-4.jpg" alt="">
+        </section>
+
+
+        <section class="about-section" id="about-section">
+            <!--Desc Box-->
+
+            <!--Lower Content-->
+            <div class="lower-content">
+                <div class="auto-container">
+                    <div class="content-box">
+                        <div class="row clearfix">
+                            <!--Column-->
+                            <div class="col-md-7  col-sm-7 col-xs-12 column">
+                                <h2 class="main-title">About Us</h2>
+
+                                <p>At Quebee Events, we create experiences that linger long after the lights go out. Our
+                                    team brings precision, passion, and a touch of magic to every detail. Based in based
+                                    in Nigeria and USA and buzzing with creativity, we turn your vision into
+                                    unforgettable reality.</p>
+
+
+
+
+
                             </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-roses-bouquet"></i>
-                                <h4 class="title">Free Consultation</h4>
-                                <p class="details pt-5">Planning an event should feel exciting—not overwhelming. At Quebee Events, we offer a free initial consultation to help you explore your vision, understand your options, and discover how we can bring your dream celebration to life.</p>
-                                 <a href="consultation.html" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
+                            <!--Column-->
+                            <div class="col-md-5  col-sm-5 col-xs-12 column">
+                                <article class="featured-box">
+                                    <figure class="image"><a href="#"><img class="img-responsive"
+                                                src="images/resource/featured-image-5.jpg" alt=""></a></figure>
+
+                                </article>
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/featured-image-5.jpg" alt="">
-                            </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-wedding-cake-3"></i>
-                                <h4 class="title">Wedding party </h4>
-                                <p class="details pt-5">At Quebee Events, we believe that a wedding is more than a ceremony—it’s a celebration of love, culture, and unforgettable moments. Our wedding party planning service is designed to turn your vision into a flawless experience, where every detail reflects your story and style.
-                                 <a href="wedding.html" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
-                                 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/featured-image-6.jpg" alt="">
-                            </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-knife-fork-and-plate"></i>
-                                <h4 class="title"> Baby Shower Planning </h4>
-                                <p class="details pt-5">Welcoming a new life is one of the most beautiful milestones—and at Quebee Events, we make sure the celebration is just as special. Our baby shower planning service is designed to create a joyful, elegant, and stress-free experience for the parents-to-be and their loved ones.</p>
-                                 <a href="baby-shower.html" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/featured-image-7.jpg" alt="">
-                            </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-curtains"></i>
-                                <h4 class="title">Personal Shopper (within Nigeria and USA)</h4>
-                                <p class="details pt-5">At Quebee Events, we go beyond planning unforgettable experiences—we curate them from the ground up. As your trusted personal shopper, we specialize in sourcing, styling, and selecting items that reflect your taste, culture, and occasion.</p>
-                                 <a href="personal-shopper.html" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/featured-image-9.jpg" alt="">
-                            </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-curtains"></i>
-                                <h4 class="title">Event Coordinator </h4>
-                                <p class="details pt-5">At Quebee Events, we believe that every occasion deserves to be unforgettable. As a premier event coordination brand, we specialize in transforming ideas into seamless experiences.</p>
-                                 <a href="event.html" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                           <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/featured-image-10.jpg" alt="">
-                            </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-curtains"></i>
-                                <h4 class="title">Theme Party </h4>
-                                <p class="details pt-5">At Quebee Events, we believe every party should be more than just a gathering—it should be an experience. Our theme party planning service transforms ordinary celebrations into immersive, unforgettable moments that reflect your personality, culture, and creativity.</p>
-                                 <a href="theme-party.html" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-
-                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/featured-image-8.jpg" alt="">
-                            </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-curtains"></i>
-                                <h4 class="title">Eru Iyawo Packages </h4>
-                                <p class="details pt-5">Celebrate Yoruba heritage with grace and style. Our Eru Iyawo packages are thoughtfully curated to honor tradition while reflecting your unique taste. From beautifully wrapped engagement items to culturally significant gifts, Quebee Events ensures every detail is handled with care, creativity, and cultural respect.</p>
-                                 <a href="quotation.html" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                      <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/featured-image-11.jpg" alt="">
-                            </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-curtains"></i>
-                                <h4 class="title">Quotation </h4>
-                                <p class="details pt-5">At Quebee Events, we understand that every celebration is unique—and so is its budget. That’s why we offer a personalized quotation service designed to reflect your specific needs, preferences, and vision..</p>
-                                 <a href="quotation.html" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
-                            </div>
-                        </div>
-
-                        
-                    </div>
-                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/cooperate.jpg" alt="">
-                            </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-curtains"></i>
-                                <h4 class="title">Corporate Events</h4>
-                                <p class="details pt-5">Impress clients and celebrate milestones with our professional corporate event planning services. From business conferences to company celebrations, we create memorable experiences that reflect your brand values.</p>
-                                <a href="#" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
-                            </div>
-                        </div>
-
-                        
-
-                        
-                    </div>
-                     <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
-                        <div class="department">
-                            <div class="thumb">
-                                <img class="img-responsive img-fullwidth" src="images/resource/gallery-image-2.jpg" alt="">
-                            </div>
-                            <div class="department-details">
-                                <div class="round-style"></div>
-                                <i class="icon flaticon-curtains"></i>
-                                <h4 class="title">General Events</h4>
-                                <p class="details pt-5">From birthday parties to anniversaries, graduations to retirement celebrations, our general event planning services ensure every milestone is memorable. We handle all the details so you can focus on enjoying your special occasion.</p>
-                                <a href="#" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i> Read More</a>
-                            </div>
-                        </div>
-
-                        
-
-                        
-                    </div>
-               
-                </div>              
-            </div>
-        </div>
-    </section>
-    
-    
-   
-
-    
-    <!--Fact Counter-->
-   
-    
-    
-    <!--Why Us Section-->
-    <section class="why-us-section">
-        
-        <div class="bg-grey"></div>
-        <div class="bg-image" data-bg-img="images/background/bg4.jpg"></div>
-        <div class="auto-container">
-            <div class="row clearfix">
-                <div class="col-md-6 col-sm-6 col-xs-12 content-column">
-                    <article class="inner-box">
-                        <div class="sec-title style-two style-three">
-                            <h3 class="text-left text-white">What We Offer?</h3>
-                            <h2 class="text-left text-white">The reasons that you should contact us</h2>
-                            <div class="line"></div>
-                        </div>
-                        <div class="block">
-                            <div class="number wow rollIn" data-wow-delay="0ms" data-wow-duration="1500ms">1</div>
-                            <h4>Theme Development</h4>
-                            <p>We help you choose and style the perfect theme  </p>
-                        </div>
-                        <div class="block">
-                            <div class="number wow rollIn" data-wow-delay="300ms" data-wow-duration="1500ms">2</div>
-                            <h4>Venue Setup</h4>
-                            <p>We transform any space into a cozy celebration</p>
-                        </div>
-                        <div class="block">
-                            <div class="number wow rollIn" data-wow-delay="600ms" data-wow-duration="1500ms">3</div>
-                            <h4>Decor & Styling</h4>
-                            <p>Balloon arches, floral backdrops, and custom signage that match your theme.</p>
-                        </div>
-                        <div class="block">
-                            <div class="number wow rollIn" data-wow-delay="600ms" data-wow-duration="1500ms">4</div>
-                            <h4>Games & Entertainment</h4>
-                            <p>Fun, interactive activities for your guests.</p>
-                        </div>
-                           <div class="block">
-                            <div class="number wow rollIn" data-wow-delay="600ms" data-wow-duration="1500ms">5</div>
-                            <h4>Catering & Treats</h4>
-                            <p>Curated menus with sweet and savory options.</p>
-                        </div>
-                           <div class="block">
-                            <div class="number wow rollIn" data-wow-delay="600ms" data-wow-duration="1500ms">6 </div>
-                            <h4>Photography & Keepsakes</h4>
-                            <p>Capture every smile with professional coverage.</p>
-                        </div>
-                    </article>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    
-    <!--Gallery Section-->
-    <section class="gallery-section parallax" data-bg-img="images/resource/blog-image-3.jpg">
-        <div class="container">
-            <div class="sec-title style-two">
-                <h3 class="text-white">OUR PHOTO GALLERY</h3>
-                <h2 class="text-white">WE OFFER YOU THE BEST SUPPORT</h2>
-                <div class="line"></div>
+        </section>
+
+
+        <!--Start Our Department Areas-->
+        <section class="pt-10">
+            <div class="container-fluid pb-10">
+                <div class="sec-title text-center">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3">
+                            <h2 class="font-sacramento text-thm">OUR FEATURE SERVICE</h2>
+                            <h3>WE CARE OUR FEATURE SUPPORT</h3>
+                            <div class="mb-15 mt-10"> <img class="img-responsive" src="images/title-bottom.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sec-content mt-20">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth" src="images/resource/featured-image-4.jpg"
+                                        alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-roses-bouquet"></i>
+                                    <h4 class="title">Free Consultation</h4>
+                                    <p class="details pt-5">Planning an event should feel exciting—not overwhelming. At
+                                        Quebee Events, we offer a free initial consultation to help you explore your
+                                        vision, understand your options, and discover how we can bring your dream
+                                        celebration to life.</p>
+                                    <a href="consultation.html" class="thm-btn btn-xs mr-5"><i
+                                            class="fa fa-angle-double-right"></i> Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth" src="images/resource/featured-image-5.jpg"
+                                        alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-wedding-cake-3"></i>
+                                    <h4 class="title">Wedding party </h4>
+                                    <p class="details pt-5">At Quebee Events, we believe that a wedding is more than a
+                                        ceremony—it’s a celebration of love, culture, and unforgettable moments. Our
+                                        wedding party planning service is designed to turn your vision into a flawless
+                                        experience, where every detail reflects your story and style.
+                                        <a href="wedding.html" class="thm-btn btn-xs mr-5"><i
+                                                class="fa fa-angle-double-right"></i> Read More</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth" src="images/resource/featured-image-6.jpg"
+                                        alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-knife-fork-and-plate"></i>
+                                    <h4 class="title"> Baby Shower Planning </h4>
+                                    <p class="details pt-5">Welcoming a new life is one of the most beautiful
+                                        milestones—and at Quebee Events, we make sure the celebration is just as
+                                        special. Our baby shower planning service is designed to create a joyful,
+                                        elegant, and stress-free experience for the parents-to-be and their loved ones.
+                                    </p>
+                                    <a href="baby-shower.html" class="thm-btn btn-xs mr-5"><i
+                                            class="fa fa-angle-double-right"></i> Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth" src="images/resource/featured-image-7.jpg"
+                                        alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-curtains"></i>
+                                    <h4 class="title">Personal Shopper (within Nigeria and USA)</h4>
+                                    <p class="details pt-5">At Quebee Events, we go beyond planning unforgettable
+                                        experiences—we curate them from the ground up. As your trusted personal shopper,
+                                        we specialize in sourcing, styling, and selecting items that reflect your taste,
+                                        culture, and occasion.</p>
+                                    <a href="personal-shopper.html" class="thm-btn btn-xs mr-5"><i
+                                            class="fa fa-angle-double-right"></i> Read More</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth" src="images/resource/featured-image-9.jpg"
+                                        alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-curtains"></i>
+                                    <h4 class="title">Event Coordinator </h4>
+                                    <p class="details pt-5">At Quebee Events, we believe that every occasion deserves to
+                                        be unforgettable. As a premier event coordination brand, we specialize in
+                                        transforming ideas into seamless experiences.</p>
+                                    <a href="event.html" class="thm-btn btn-xs mr-5"><i
+                                            class="fa fa-angle-double-right"></i> Read More</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth"
+                                        src="images/resource/featured-image-10.jpg" alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-curtains"></i>
+                                    <h4 class="title">Theme Party </h4>
+                                    <p class="details pt-5">At Quebee Events, we believe every party should be more than
+                                        just a gathering—it should be an experience. Our theme party planning service
+                                        transforms ordinary celebrations into immersive, unforgettable moments that
+                                        reflect your personality, culture, and creativity.</p>
+                                    <a href="theme-party.html" class="thm-btn btn-xs mr-5"><i
+                                            class="fa fa-angle-double-right"></i> Read More</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth" src="images/resource/featured-image-8.jpg"
+                                        alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-curtains"></i>
+                                    <h4 class="title">Eru Iyawo Packages </h4>
+                                    <p class="details pt-5">Celebrate Yoruba heritage with grace and style. Our Eru
+                                        Iyawo packages are thoughtfully curated to honor tradition while reflecting your
+                                        unique taste. From beautifully wrapped engagement items to culturally
+                                        significant gifts, Quebee Events ensures every detail is handled with care,
+                                        creativity, and cultural respect.</p>
+                                    <a href="budget.html" class="thm-btn btn-xs mr-5"><i
+                                            class="fa fa-angle-double-right"></i> Read More</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth"
+                                        src="images/resource/featured-image-11.jpg" alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-curtains"></i>
+                                    <h4 class="title">Budget </h4>
+                                    <p class="details pt-5">At Quebee Events, we understand that every celebration is
+                                        unique—and so is its budget. That’s why we offer a personalized budget service
+                                        designed to reflect your specific needs, preferences, and vision..</p>
+                                    <a href="budget.html" class="thm-btn btn-xs mr-5"><i
+                                            class="fa fa-angle-double-right"></i> Read More</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth" src="images/resource/cooperate.jpg"
+                                        alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-curtains"></i>
+                                    <h4 class="title">Corporate Events</h4>
+                                    <p class="details pt-5">Impress clients and celebrate milestones with our
+                                        professional corporate event planning services. From business conferences to
+                                        company celebrations, we create memorable experiences that reflect your brand
+                                        values.</p>
+                                    <a href="#" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i>
+                                        Read More</a>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+                            <div class="department">
+                                <div class="thumb">
+                                    <img class="img-responsive img-fullwidth" src="images/resource/gallery-image-2.jpg"
+                                        alt="">
+                                </div>
+                                <div class="department-details">
+                                    <div class="round-style"></div>
+                                    <i class="icon flaticon-curtains"></i>
+                                    <h4 class="title">General Events</h4>
+                                    <p class="details pt-5">From birthday parties to anniversaries, graduations to
+                                        retirement celebrations, our general event planning services ensure every
+                                        milestone is memorable. We handle all the details so you can focus on enjoying
+                                        your special occasion.</p>
+                                    <a href="#" class="thm-btn btn-xs mr-5"><i class="fa fa-angle-double-right"></i>
+                                        Read More</a>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="sec-content mt-50">
+        </section>
+
+
+
+
+
+        <!--Fact Counter-->
+
+
+
+        <!--Why Us Section-->
+        <section class="why-us-section">
+
+            <div class="bg-grey"></div>
+            <div class="bg-image" data-bg-img="images/background/bg4.jpg"></div>
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-md-6 col-sm-6 col-xs-12 content-column">
+                        <article class="inner-box">
+                            <div class="sec-title style-two style-three">
+                                <h3 class="text-left text-white">What We Offer?</h3>
+                                <h2 class="text-left text-white">The reasons that you should contact us</h2>
+                                <div class="line"></div>
+                            </div>
+                            <div class="block">
+                                <div class="number wow rollIn" data-wow-delay="0ms" data-wow-duration="1500ms">1</div>
+                                <h4>Theme Development</h4>
+                                <p>We help you choose and style the perfect theme </p>
+                            </div>
+                            <div class="block">
+                                <div class="number wow rollIn" data-wow-delay="300ms" data-wow-duration="1500ms">2</div>
+                                <h4>Venue Setup</h4>
+                                <p>We transform any space into a cozy celebration</p>
+                            </div>
+                            <div class="block">
+                                <div class="number wow rollIn" data-wow-delay="600ms" data-wow-duration="1500ms">3</div>
+                                <h4>Decor & Styling</h4>
+                                <p>Balloon arches, floral backdrops, and custom signage that match your theme.</p>
+                            </div>
+                            <div class="block">
+                                <div class="number wow rollIn" data-wow-delay="600ms" data-wow-duration="1500ms">4</div>
+                                <h4>Games & Entertainment</h4>
+                                <p>Fun, interactive activities for your guests.</p>
+                            </div>
+                            <div class="block">
+                                <div class="number wow rollIn" data-wow-delay="600ms" data-wow-duration="1500ms">5</div>
+                                <h4>Catering & Treats</h4>
+                                <p>Curated menus with sweet and savory options.</p>
+                            </div>
+                            <div class="block">
+                                <div class="number wow rollIn" data-wow-delay="600ms" data-wow-duration="1500ms">6
+                                </div>
+                                <h4>Photography & Keepsakes</h4>
+                                <p>Capture every smile with professional coverage.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!--Gallery Section-->
+        <section class="gallery-section parallax" data-bg-img="images/resource/blog-image-3.jpg">
+            <div class="container">
+                <div class="sec-title style-two">
+                    <h3 class="text-white">OUR PHOTO GALLERY</h3>
+                    <h2 class="text-white">WE OFFER YOU THE BEST SUPPORT</h2>
+                    <div class="line"></div>
+                </div>
+                <div class="sec-content mt-50">
+                    <div class="gallery-carousel-wrapper">
+                        <!-- Left Arrow -->
+                        <button class="gallery-arrow gallery-arrow-left" onclick="scrollGallery('left')">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+
+                        <!-- Gallery Container -->
+                        <div class="gallery-carousel-container" id="galleryCarousel">
+                            <div class="row clearfix">
+                                <!--Column-->
+                                <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="0ms"
+                                    data-wow-duration="1500ms">
+                                    <figure class="image">
+                                        <a href="images/resource/gallery-image-1.jpg" class="lightbox-image"><img
+                                                class="img-responsive" src="images/resource/gallery-image-1.jpg"
+                                                alt=""></a>
+                                        <div class="overlay-box"><a href="images/resource/gallery-image-1.jpg"
+                                                class="link lightbox-image" title="Gallery Photos"><span
+                                                    class="txt font-30"><i class="fa fa-camera"></i></span></a></div>
+                                    </figure>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="300ms"
+                                    data-wow-duration="1500ms">
+                                    <figure class="image">
+                                        <a href="images/resource/gallery-image-2.jpg" class="lightbox-image"><img
+                                                class="img-responsive" src="images/resource/gallery-image-2.jpg"
+                                                alt=""></a>
+                                        <div class="overlay-box"><a href="images/resource/gallery-image-2.jpg"
+                                                class="link lightbox-image" title="Gallery Photos"><span
+                                                    class="txt font-30"><i class="fa fa-camera"></i></span></a></div>
+                                    </figure>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="600ms"
+                                    data-wow-duration="1500ms">
+                                    <figure class="image">
+                                        <a href="images/resource/gallery-image-5.jpg" class="lightbox-image"><img
+                                                class="img-responsive" src="images/resource/gallery-image-5.jpg"
+                                                alt=""></a>
+                                        <div class="overlay-box"><a href="images/resource/gallery-image-5.jpg"
+                                                class="link lightbox-image" title="Gallery Photos"><span
+                                                    class="txt font-30"><i class="fa fa-camera"></i></span></a></div>
+                                    </figure>
+                                </div>
+                                <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="900ms"
+                                    data-wow-duration="1500ms">
+                                    <figure class="image">
+                                        <!-- Video Gallery Item -->
+                                        <div class="video-gallery-item">
+                                            <video class="img-responsive" controls preload="metadata" playsinline>
+                                                <source src="images/resource/gallery-image-6.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div class="overlay-box"
+                                                onclick="playVideoFromOverlay(this); return false;">
+                                                <a href="javascript:void(0)" class="link video-link">
+                                                    <span class="txt font-30"><i class="fa fa-play-circle"></i></span>
+                                                </a>
+                                            </div>
+                                            <div class="video-error-message" style="display: none;">
+                                                <p>Video failed to load. Click to retry.</p>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="1200ms"
+                                    data-wow-duration="1500ms">
+                                    <figure class="image">
+                                        <!-- Video Gallery Item -->
+                                        <div class="video-gallery-item">
+                                            <video class="img-responsive" controls preload="metadata" playsinline>
+                                                <source src="images/resource/gallery-image-7.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div class="overlay-box"
+                                                onclick="playVideoFromOverlay(this); return false;">
+                                                <a href="javascript:void(0)" class="link video-link">
+                                                    <span class="txt font-30"><i class="fa fa-play-circle"></i></span>
+                                                </a>
+                                            </div>
+                                            <div class="video-error-message" style="display: none;">
+                                                <p>Video failed to load. Click to retry.</p>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="1500ms"
+                                    data-wow-duration="1500ms">
+                                    <figure class="image">
+                                        <!-- Video Gallery Item -->
+                                        <div class="video-gallery-item">
+                                            <video class="img-responsive" controls preload="metadata" playsinline>
+                                                <source src="images/resource/gallery-image-8.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div class="overlay-box"
+                                                onclick="playVideoFromOverlay(this); return false;">
+                                                <a href="javascript:void(0)" class="link video-link">
+                                                    <span class="txt font-30"><i class="fa fa-play-circle"></i></span>
+                                                </a>
+                                            </div>
+                                            <div class="video-error-message" style="display: none;">
+                                                <p>Video failed to load. Click to retry.</p>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+
+                                <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="1800ms"
+                                    data-wow-duration="1500ms">
+                                    <figure class="image">
+                                        <!-- Video Gallery Item -->
+                                        <div class="video-gallery-item">
+                                            <video class="img-responsive" controls preload="metadata" playsinline>
+                                                <source src="images/resource/gallery-image-9.mp4" type="video/mp4">
+                                                Your browser does not support the video tag.
+                                            </video>
+                                            <div class="overlay-box"
+                                                onclick="playVideoFromOverlay(this); return false;">
+                                                <a href="javascript:void(0)" class="link video-link">
+                                                    <span class="txt font-30"><i class="fa fa-play-circle"></i></span>
+                                                </a>
+                                            </div>
+                                            <div class="video-error-message" style="display: none;">
+                                                <p>Video failed to load. Click to retry.</p>
+                                            </div>
+                                        </div>
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Arrow -->
+                        <button class="gallery-arrow gallery-arrow-right" onclick="scrollGallery('right')">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <br><br>
+                <div class="link-box"><a href="#" class="default-btn theme-btn">View Project</a></div>
+            </div>
+        </section>
+
+
+        <!--Team Section-->
+        <section class="team-section">
+            <div class="auto-container">
+                <div class="sec-title text-center">
+                    <h3>MEET THE IMPORTANT PEOPLE</h3>
+                    <h2>Meet the Visionary Behind Quebee Events</h2>
+                    <div class="mb-30 mt-20"> <img class="img-responsive" src="images/title-bottom.png" alt=""></div>
+                </div>
                 <div class="row clearfix">
                     <!--Column-->
-                    <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <figure class="image mr-5">
-                            <a href="images/resource/gallery-image-1.jpg" class="lightbox-image"><img class="img-responsive" src="images/resource/gallery-image-1.jpg" alt=""></a>
-                            <div class="overlay-box"><a href="images/resource/gallery-image-1.jpg" class="link lightbox-image" title="Gallery Photos"><span class="txt font-30"><i class="fa fa-camera"></i></span></a></div>
-                        </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <figure class="image mr-5">
-                            <a href="images/resource/gallery-image-2.jpg" class="lightbox-image"><img class="img-responsive" src="images/resource/gallery-image-2.jpg" alt=""></a>
-                            <div class="overlay-box"><a href="images/resource/gallery-image-2.jpg" class="link lightbox-image" title="Gallery Photos"><span class="txt font-30"><i class="fa fa-camera"></i></span></a></div>
-                        </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="600ms" data-wow-duration="1500ms">
-                        <figure class="image mr-5">
-                            <a href="images/resource/gallery-image-5.jpg" class="lightbox-image"><img class="img-responsive" src="images/resource/gallery-image-5.jpg" alt=""></a>
-                            <div class="overlay-box"><a href="images/resource/gallery-image-5.jpg" class="link lightbox-image" title="Gallery Photos"><span class="txt font-30"><i class="fa fa-camera"></i></span></a></div>
-                        </figure>
-                    </div>
-                    <div class="col-md-3 col-sm-4 col-xs-12 column wow fadeIn" data-wow-delay="900ms" data-wow-duration="1500ms">
-                        <figure class="image">
-                            <!-- Video Gallery Item -->
-                            <div class="video-gallery-item">
-                                <video class="img-responsive" controls preload="metadata" playsinline>
-                                    <source src="images/resource/gallery-image-6.mp4" type="video/mp4">
-                                    Your browser does not support the video tag.
-                                </video>
-                                <div class="overlay-box" onclick="playVideoFromOverlay(this); return false;">
-                                    <a href="javascript:void(0)" class="link video-link">
-                                        <span class="txt font-30"><i class="fa fa-play-circle"></i></span>
-                                    </a>
+                    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 column wow fadeInLeft"
+                        data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <article class="row clearfix">
+                            <figure class="col-md-6 col-sm-6 col-xs-12 image"><a href="#"><img class="img-responsive"
+                                        src="images/resource/groom-image-1.jpg" alt=""></a></figure>
+                            <div class="col-md-6 col-sm-6 col-xs-12 content">
+                                <div class="title-box">
+                                    <h4>Quebee Events</h4>
+                                    <p>Founder & CEO</p>
                                 </div>
-                                <div class="video-error-message" style="display: none;">
-                                    <p>Video failed to load. Click to retry.</p>
+                                <div class="text">
+                                    <p>The CEO of Quebee Events is a certified event management planner from Nigeria
+                                        whose flair for curating unforgettable experiences has now crossed international
+                                        borders. Based in Atlanta, Georgia, she made her dazzling international debut on
+                                        September 27, 2025, orchestrating the spectacular Meg @ 60 birthday
+                                        celebration—a milestone event that blended elegance, cultural richness, and
+                                        flawless execution.</p>
                                 </div>
+                                <div class="more-link"><a href="about-her.html" class="read-more"><span
+                                            class="fa fa-caret-right"></span> More Info </a></div>
                             </div>
-                        </figure>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!--Testimonials Section-->
+        <section class="default-two-column pb-20">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!--Section Title-->
+                    <div class="col-md-12">
+                        <div class="sec-title text-center">
+                            <h3>CLIENT TESTIMONIALS</h3>
+                            <h2>What Our Clients Say</h2>
+                            <div class="mb-30 mt-20"> <img class="img-responsive" src="images/title-bottom.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Testimonials Column-->
+                    <div class="col-md-10 col-md-offset-1 column">
+                        <div class="inner-box">
+                            <!--Testimonials Slider-->
+                            <div class="testimonial-slider">
+                                <div class="slider">
+                                    <article class="slide-item">
+                                        <div class="slide-content">
+                                            <p>"Quebee Events made our wedding day absolutely perfect! From the
+                                                traditional Nigerian ceremony to the modern reception, every detail was
+                                                flawlessly executed. Their attention to cultural elements while
+                                                maintaining elegance was impressive. We couldn't have asked for a better
+                                                team to bring our vision to life!"</p>
+                                        </div>
+                                        <div class="slide-info">
+                                            <!-- <figure class="author-thumb img-circle"><a href="#"><img class="img-circle"
+                                                        src="images/resource/author-thumb-2.jpg" alt=""></a></figure> -->
+                                            <div class="author-info">
+                                                <h5>Chioma & David Okonkwo</h5>
+                                                <p>Wedding - Atlanta, GA</p>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="slide-item">
+                                        <div class="slide-content">
+                                            <p>"Our baby shower was beyond our wildest dreams! Quebee Events created
+                                                such a warm and joyful atmosphere. The decorations were stunning, the
+                                                games were fun, and everything ran smoothly. They truly understood our
+                                                vision and made it a reality. Highly recommend for any celebration!"</p>
+                                        </div>
+                                        <div class="slide-info">
+                                            <!-- <figure class="author-thumb img-circle"><a href="#"><img class="img-circle"
+                                                        src="images/resource/author-thumb-3.jpg" alt=""></a></figure> -->
+                                            <div class="author-info">
+                                                <h5>Amara Johnson</h5>
+                                                <p>Baby Shower - Lagos, Nigeria</p>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="slide-item">
+                                        <div class="slide-content">
+                                            <p>"Quebee Events transformed our corporate anniversary into an
+                                                unforgettable celebration! Their professionalism and creativity exceeded
+                                                our expectations. The themed decorations, entertainment, and seamless
+                                                coordination made our event the talk of the company. Thank you for
+                                                making it so special!"</p>
+                                        </div>
+                                        <div class="slide-info">
+                                            <!-- <figure class="author-thumb img-circle"><a href="#"><img class="img-circle"
+                                                        src="images/resource/author-thumb-2.jpg" alt=""></a></figure> -->
+                                            <div class="author-info">
+                                                <h5>Michael Thompson</h5>
+                                                <p>Corporate Event - Atlanta, GA</p>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="slide-item">
+                                        <div class="slide-content">
+                                            <p>"Planning a traditional Yoruba wedding from the USA seemed daunting, but
+                                                Quebee Events made it effortless! They coordinated everything perfectly,
+                                                honoring our cultural traditions while adding modern touches. Our guests
+                                                are still raving about how beautiful and well-organized everything was!"
+                                            </p>
+                                        </div>
+                                        <div class="slide-info">
+                                            <!-- <figure class="author-thumb img-circle"><a href="#"><img class="img-circle"
+                                                        src="images/resource/author-thumb-3.jpg" alt=""></a></figure> -->
+                                            <div class="author-info">
+                                                <h5>Folake & James Williams</h5>
+                                                <p>Traditional Wedding - Nigeria/USA</p>
+                                            </div>
+                                        </div>
+                                    </article>
+
+                                    <article class="slide-item">
+                                        <div class="slide-content">
+                                            <p>"Our daughter's 1st birthday party was magical thanks to Quebee Events!
+                                                They created the most adorable safari theme with incredible attention to
+                                                detail. The setup was Instagram-worthy, and they managed everything so
+                                                we could just enjoy the celebration. Worth every penny!"</p>
+                                        </div>
+                                        <div class="slide-info">
+                                            <!-- <figure class="author-thumb img-circle"><a href="#"><img class="img-circle"
+                                                        src="images/resource/author-thumb-2.jpg" alt=""></a></figure>
+                                            <div class="author-info"> -->
+                                            <h5>Sarah & Emmanuel Adeyemi</h5>
+                                            <p>Birthday Party - Lagos, Nigeria</p>
+                                        </div>
+                                </div>
+                                </article>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <br><br>
-            <div class="link-box"><a href="#" class="default-btn theme-btn">View Project</a></div>
-        </div>
+    </div>
     </section>
 
-    
-    <!--Team Section-->
-    <section class="team-section">
+    <!--Blog Section-->
+    <section class="blog-section style-two" style="padding: 80px 0;">
         <div class="auto-container">
             <div class="sec-title text-center">
-                <h3>MEET THE IMPORTANT PEOPLE</h3>
-                <h2>Meet the Visionary Behind Quebee Events</h2>
+                <h3>FROM OUR BLOG</h3>
+                <h2>A space for tips, trends, and behind-the-scenes magic</h2>
                 <div class="mb-30 mt-20"> <img class="img-responsive" src="images/title-bottom.png" alt=""></div>
             </div>
             <div class="row clearfix">
-                <!--Column-->
-                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-12 column wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <article class="row clearfix">
-                        <figure class="col-md-6 col-sm-6 col-xs-12 image"><a href="#"><img class="img-responsive" src="images/resource/groom-image-1.jpg" alt=""></a></figure>
-                        <div class="col-md-6 col-sm-6 col-xs-12 content">
-                            <div class="title-box">
-                                <h4>Omolola  Hudson (QBee Event)</h4>
-                                <p>Founder & CEO</p>
-                            </div>
-                            <div class="text">
-                                <p>The CEO of Quebee Events is a certified event management planner from Nigeria whose flair for curating unforgettable experiences has now crossed international borders. Based in Atlanta, Georgia, she made her dazzling international debut on September 27, 2025, orchestrating the spectacular Meg @ 60 birthday celebration—a milestone event that blended elegance, cultural richness, and flawless execution.</p>
-                            </div>
-                            <div class="more-link"><a href="about-her.html" class="read-more"><span class="fa fa-caret-right"></span> More Info </a></div>
+                <!--Post-->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 blog-post wow fadeInRight" data-wow-delay="600ms"
+                    data-wow-duration="1500ms">
+                    <article class="inner-box p-xs-20">
+                        <div class="image"><a href="blog-detail.html"><img class="img-responsive"
+                                    src="images/resource/blog-image-3.jpg" alt=""></a></div>
+                        <div class="post-title">
+                            <h2><a href="blog-detail.html">Planning Your Perfect Wedding</a></h2>
+                        </div>
+                        <div class="post-info"><a href="#"><span class="fa fa-user"></span>Quebee Events</a>
+                            &ensp;&ensp; <a href="#"><span class="fa fa-clock-o"></span>June 8, 2025</a></div>
+                        <div class="post-desc">
+                            <p>Discover the latest trends in wedding planning and how Quebee Events can make your
+                                special day unforgettable.</p>
+                        </div>
+                        <div class="more-link"><a class="theme-btn read-more" href="blog-wedding.html">READ MORE</a>
                         </div>
                     </article>
                 </div>
-               
+
+                <!--Post-->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 blog-post wow fadeInRight" data-wow-delay="300ms"
+                    data-wow-duration="1500ms">
+                    <article class="inner-box p-xs-20">
+                        <div class="image"><a href="blog-detail.html"><img class="img-responsive"
+                                    src="images/resource/blog-image-2.jpg" alt=""></a></div>
+                        <div class="post-title">
+                            <h2><a href="blog-detail.html">Baby Shower Essentials</a></h2>
+                        </div>
+                        <div class="post-info"><a href="#"><span class="fa fa-user"></span>Quebee Events</a>
+                            &ensp;&ensp; <a href="#"><span class="fa fa-clock-o"></span>May 15, 2025</a></div>
+                        <div class="post-desc">
+                            <p>Tips and tricks for organizing the perfect baby shower celebration with Quebee
+                                Events.</p>
+                        </div>
+                        <div class="more-link"><a class="theme-btn read-more" href="blog-baby-shower.html">READ
+                                MORE</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!--Post-->
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 blog-post wow fadeInRight" data-wow-delay="0ms"
+                    data-wow-duration="1500ms">
+                    <article class="inner-box p-xs-20">
+                        <div class="image"><a href="blog-detail.html"><img class="img-responsive"
+                                    src="images/resource/blog-image-1.jpg" alt=""></a></div>
+                        <div class="post-title">
+                            <h2><a href="blog-detail.html">Theme Party Ideas</a></h2>
+                        </div>
+                        <div class="post-info"><a href="#"><span class="fa fa-user"></span>Quebee Events</a>
+                            &ensp;&ensp; <a href="#"><span class="fa fa-clock-o"></span>April 22, 2025</a></div>
+                        <div class="post-desc">
+                            <p>Creative theme party concepts that will make your event the talk of the town.</p>
+                        </div>
+                        <div class="more-link"><a class="theme-btn read-more" href="blog-theme-party.html">READ
+                                MORE</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="text-center mt-30">
+                <a href="blog-three-column.html" class="default-btn theme-btn">VIEW ALL POSTS</a>
             </div>
         </div>
     </section>
-    
-    <!--Default Two Column Section-->
-  
-    
-    
-    <!--Blog Section-->
- 
-    
-    
+
+
+    <section class="fact-counter">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <!--Column-->
+                <article class="col-md-3 col-sm-6 col-xs-12 column wow fadeIn" data-wow-duration="0ms">
+                    <div class="count-outer"><span class="count-text" data-speed="700" data-stop="250">150</span>+
+                    </div>
+                    <div class="line"></div>
+                    <h4 class="counter-title">SUCCESSFULL PROJECT</h4>
+                </article>
+
+                <!--Column-->
+                <article class="col-md-3 col-sm-6 col-xs-12 column wow fadeIn" data-wow-duration="0ms">
+                    <div class="count-outer"><span class="count-text" data-speed="2000" data-stop="500">50</span>+
+                    </div>
+                    <div class="line"></div>
+                    <h4 class="counter-title">HAPPY CLIENTS</h4>
+                </article>
+
+                <!--Column-->
+                <article class="col-md-3 col-sm-6 col-xs-12 column wow fadeIn" data-wow-duration="0ms">
+                    <div class="count-outer"><span class="count-text" data-speed="500" data-stop="5">10</span>+
+                    </div>
+                    <div class="line"></div>
+                    <h4 class="counter-title">YEARS OF EXPERIENCE</h4>
+                </article>
+
+                <!--Column-->
+                <!-- <article class="col-md-3 col-sm-6 col-xs-12 column wow fadeIn" data-wow-duration="0ms">
+                        <div class="count-outer"><span class="count-text" data-speed="1200" data-stop="15">0</span>+
+                        </div>
+                        <div class="line"></div>
+                        <h4 class="counter-title">ONGOING PROJECTS</h4>
+                    </article> -->
+            </div>
+        </div>
+    </section>
+
     <!--Main Footer-->
     <footer class="main-footer">
-    	
+
         <!--Footer Upper-->
         <div class="footer-upper">
-        	<!--Go Up Button-->
+            <!--Go Up Button-->
             <div class="go-up">
-            	<div class="curve scroll-to-target" data-target="#main-header"><span class="icon fa fa-arrow-up"></span></div>
+                <div class="curve scroll-to-target" data-target="#main-header"><span class="icon fa fa-arrow-up"></span>
+                </div>
             </div>
             <div class="container">
                 <div class="row">
@@ -522,7 +1113,11 @@
                         <div class="footer-widget about-widget">
                             <h2>About Quebee Events</h2>
                             <div class="text">
-                                <p>At Quebee Events, we don't just plan—we create experiences that linger long after the lights go out. Whether it's a lavish wedding, a corporate gala, or an intimate celebration, our team brings precision, passion, and a touch of magic to every detail. Based in based in Nigeria and USA and buzzing with creativity, we turn your vision into unforgettable reality.</p>
+                                <p>At Quebee Events, we don't just plan—we create experiences that linger long after
+                                    the lights go out. Whether it's a lavish wedding, a corporate gala, or an
+                                    intimate celebration, our team brings precision, passion, and a touch of magic
+                                    to every detail. Based in based in Nigeria and USA and buzzing with creativity,
+                                    we turn your vision into unforgettable reality.</p>
                             </div>
                         </div>
                     </div>
@@ -538,18 +1133,24 @@
                             </ul>
                         </div>
                     </div>
-                   
+
                     <div class="col-md-3 col-sm-6 col-xs-12 column">
                         <div class="footer-widget newsletter-widget">
                             <h2>Stay Updated</h2>
-                            <div class="text"><p>Subscribe to our newsletter and never miss an event update, special offer, or new service from Quebee Events. We bring precision, passion, and a touch of magic to every celebration.</p>
+                            <div class="text">
+                                <p>Subscribe to our newsletter and never miss an event update, special offer, or new
+                                    service from Quebee Events. We bring precision, passion, and a touch of magic to
+                                    every celebration.</p>
                             </div>
                             <br>
                             <div class="form-box">
-                                <form method="post" action="http://world5.commonsupport.com/html/rashid-wedding/rashid-wedding/index.html">
+                                <form method="post"
+                                    action="http://world5.commonsupport.com/html/rashid-wedding/rashid-wedding/index.html">
                                     <div class="form-group">
-                                        <input type="email" name="email" value="" placeholder="Enter your email here..." required>                                                
-                                        <button type="submit" class="btn-submit"><span class="icon fa fa-long-arrow-right"></span></button>
+                                        <input type="email" name="email" value="" placeholder="Enter your email here..."
+                                            required>
+                                        <button type="submit" class="btn-submit"><span
+                                                class="icon fa fa-long-arrow-right"></span></button>
                                     </div>
                                 </form>
                             </div>
@@ -559,42 +1160,74 @@
                 <div class="row">
                     <div class="contact-info">
                         <ul>
-                            
+
                             <!-- Added contact information -->
-                            <li><div class="info-title"><span class="fa fa-phone"></span> Contact</div><p class="info">404-384-3414</p></li>
-                            <li><div class="info-title"><span class="fa fa-at"></span> Email</div><p class="info"><a href="mailto:quebeevents30@gmail.com">quebeevents30@gmail.com</a></p></li>
-                            <li><div class="info-title"><span class="fa fa-instagram"></span> Instagram</div><p class="info"><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4" target="_blank">quebee__event</a></p></li>
+                            <li>
+                                <div class="info-title"><span class="fa fa-phone"></span> Contact</div>
+                                <p class="info">404-384-3414</p>
+                            </li>
+                            <li>
+                                <div class="info-title"><span class="fa fa-at"></span> Email</div>
+                                <p class="info"><a href="mailto:info@queebeevent.com">info@queebeevent.com</a></p>
+                            </li>
+                            <li>
+                                <div class="info-title"><span class="fa fa-instagram"></span> Instagram</div>
+                                <p class="info"><a href="https://www.instagram.com/quebee__event?igsh=cnFzbnZ5Z2lkc3A4"
+                                        target="_blank">quebee__event</a></p>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <!--Footer Bottom-->
-    	<div class="footer-bottom">
+        <div class="footer-bottom">
             <div class="auto-container">
                 <!--Copyright-->
                 <div class="copyright">© 2025 Edoubleone Inc. All rights reserved</div>
-           
+
             </div>
         </div>
-        
+
     </footer>
-    
-    
-</div>
-<!--End pagewrapper-->
 
-<!--Scroll to top-->
-<div class="scroll-to-top scroll-to-target" data-target="#main-header"><span class="fa fa-arrow-up"></span></div>
 
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/js-collection.js"></script>
-<script src="js/flipclock.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/script.js"></script>
 
+
+
+    </div>
+    <!--End pagewrapper-->
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="#main-header"><span class="fa fa-arrow-up"></span></div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/js-collection.js"></script>
+    <script src="js/flipclock.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+        // Gallery Arrow Navigation Function
+        function scrollGallery(direction) {
+            const container = document.getElementById('galleryCarousel');
+            const scrollAmount = 300; // Scroll by 300px
+
+            if (direction === 'left') {
+                container.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
+            } else if (direction === 'right') {
+                container.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    </script>
 </body>
 
 <!-- Mirrored from world5.commonsupport.com/html/rashid-wedding/rashid-wedding/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 23 Oct 2025 12:59:07 GMT -->
+
 </html>

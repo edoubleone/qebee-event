@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form Troubleshooting</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
+        .error { color: #d9534f; }
+        .success { color: #5cb85c; }
+        .info { background-color: #f5f5f5; padding: 15px; border-left: 4px solid #0275d8; }
+        code { background-color: #f8f9fa; padding: 2px 4px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Contact Form Troubleshooting Guide</h1>
+    
+    <h2>Issue: PHP Code Displayed Instead of Form Processing</h2>
+    <p class="error">When submitting the contact form, you see raw PHP code instead of the form processing.</p>
+    
+    <h3>Root Cause</h3>
+    <p>This issue occurs when your web server is not configured to execute PHP files. Instead of running the PHP code, the server sends the PHP code as plain text to your browser.</p>
+    
+    <h3>Solutions</h3>
+    
+    <h4>1. If Using Local Development Server</h4>
+    <div class="info">
+        <p><strong>Problem:</strong> Opening HTML files directly in browser using file:// protocol won't process PHP.</p>
+        <p><strong>Solution:</strong> Use a proper local development server:</p>
+        <ul>
+            <li><strong>XAMPP</strong> (Windows/Mac/Linux) - <a href="https://www.apachefriends.org/index.html">Download here</a></li>
+            <li><strong>WAMP</strong> (Windows) - <a href="http://www.wampserver.com/en/">Download here</a></li>
+            <li><strong>MAMP</strong> (Mac/Windows) - <a href="https://www.mamp.info/en/">Download here</a></li>
+        </ul>
+        <p>Place your website files in the server's document root (e.g., htdocs for XAMPP) and access via http://localhost/</p>
+    </div>
+    
+    <h4>2. If Using Web Hosting</h4>
+    <div class="info">
+        <p><strong>Problem:</strong> Hosting account not configured for PHP or files in wrong location.</p>
+        <p><strong>Solutions:</strong></p>
+        <ul>
+            <li>Contact your hosting provider to confirm PHP is enabled on your account</li>
+            <li>Check if your hosting requires specific file extensions or directories for PHP</li>
+            <li>Ensure files are uploaded to the correct directory (usually public_html or www)</li>
+        </ul>
+    </div>
+    
+    <h4>3. Test PHP Configuration</h4>
+    <div class="info">
+        <p>Run these tests to diagnose the issue:</p>
+        <ol>
+            <li>Visit <a href="test_php.php">test_php.php</a> - Should display "PHP is working correctly!"</li>
+            <li>Visit <a href="test_mail.php">test_mail.php</a> - Should show if mail function works</li>
+        </ol>
+        <p>If these don't work, it confirms the server configuration issue.</p>
+    </div>
+    
+    <h4>4. Alternative Solution: Use Formspree</h4>
+    <div class="info">
+        <p>If you can't fix the server configuration, you can use a third-party service like Formspree:</p>
+        <ol>
+            <li>Sign up at <a href="https://formspree.io">formspree.io</a></li>
+            <li>Get your form endpoint URL</li>
+            <li>Replace the form action in contact.html with your Formspree endpoint</li>
+        </ol>
+    </div>
+    
+    <h3>Need Help?</h3>
+    <p>If you're still having issues after trying these solutions, please contact your hosting provider or system administrator for assistance with PHP configuration.</p>
+</body>
+</html>
