@@ -320,6 +320,7 @@
 		right: 10px !important;
 		top: 25px;
 		z-index: 10;
+		display: none;
 	}
 }
 
